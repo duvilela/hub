@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realme C61 | Custo-Benefício que Impressiona</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #09090b;
+            --card: #18181b;
+            --card-hover: #1f1f23;
+            --border: #27272a;
+            --text: #fafafa;
+            --muted: #a1a1aa;
+            --accent: #f59e0b;
+            --accent2: #f97316;
+            --green: #22c55e;
+            --blue: #3b82f6;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(9,9,11,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover { color: var(--text); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 700px 500px at 30% 50%, rgba(245,158,11,0.1), transparent),
+                radial-gradient(ellipse 500px 400px at 70% 40%, rgba(249,115,22,0.07), transparent);
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.25rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .hero-specs {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-spec {
+            text-align: center;
+        }
+
+        .hero-spec .value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .hero-spec .label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            padding: 0.85rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #000;
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.3); }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* PHONE MOCKUP */
+        .phone-mockup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-frame {
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(145deg, #1a1a1f, #0d0d10);
+            border-radius: 36px;
+            border: 3px solid #333;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(245,158,11,0.08);
+        }
+
+        .phone-screen {
+            position: absolute;
+            inset: 8px;
+            border-radius: 28px;
+            background: linear-gradient(160deg, #1e1b2e, #0f0c1a, #1a1333);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .phone-screen .phone-brand {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .phone-screen .phone-model {
+            font-size: 1rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .phone-screen .phone-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #0d0d10;
+            border-radius: 0 0 14px 14px;
+            z-index: 2;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .section-title .highlight {
+            color: var(--accent);
+        }
+
+        /* FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            background: var(--card-hover);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* COMPARISON TABLE */
+        .comparison-wrapper {
+            overflow-x: auto;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .comparison-table thead {
+            background: var(--card);
+        }
+
+        .comparison-table th {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th.highlight-col {
+            color: var(--accent);
+        }
+
+        .comparison-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .comparison-table tbody tr:last-child td { border-bottom: none; }
+
+        .comparison-table tbody tr:hover { background: rgba(245,158,11,0.03); }
+
+        .comparison-table .highlight-col {
+            background: rgba(245,158,11,0.04);
+            font-weight: 600;
+        }
+
+        .comparison-table .best {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        /* PROS */
+        .pros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .pro-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .pro-item:hover { border-color: var(--green); transform: translateY(-2px); }
+
+        .pro-check {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            background: rgba(34,197,94,0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .pro-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .pro-item p { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+
+        /* BENCHMARK */
+        .benchmark-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .bench-item label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .bench-item label span { color: var(--muted); font-weight: 400; }
+
+        .bench-bar {
+            height: 10px;
+            background: var(--border);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .bench-fill {
+            height: 100%;
+            border-radius: 99px;
+            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+            width: 0;
+        }
+
+        .bench-fill.gold { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+        .bench-fill.blue { background: linear-gradient(90deg, #3b82f6, #06b6d4); }
+        .bench-fill.gray { background: #52525b; }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 600px 400px at 50% 50%, rgba(245,158,11,0.08), transparent);
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--green), #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .price-note {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-specs { justify-content: center; }
+            .btn-group { justify-content: center; }
+
+            .phone-frame {
+                width: 220px;
+                height: 440px;
+            }
+
+            nav ul { display: none; }
+
+            .comparison-table { min-width: 600px; }
+        }
+
+        /* ANIMATIONS */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">realme C61</div>
+    <ul>
+        <li><a href="#specs">Especificações</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#comparativo">Comparativo</a></li>
+        <li><a href="#vantagens">Vantagens</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Realme C61<br><span>Potência Real</span><br>Preço Justo</h1>
+            <p class="tagline">Tela imersiva de 6.78", bateria de 5000mAh com carregamento de 33W e câmera de 50MP. Tudo isso por um preço que cabe no seu bolso.</p>
+            <div class="hero-specs">
+                <div class="hero-spec">
+                    <div class="value">6.78"</div>
+                    <div class="label">Tela HD+ 90Hz</div>
+                </div>
+                <div class="hero-spec">
+                    <div class="value">5000</div>
+                    <div class="label">mAh Bateria</div>
+                </div>
+                <div class="hero-spec">
+                    <div class="value">33W</div>
+                    <div class="label">Carga Rápida</div>
+                </div>
+                <div class="hero-spec">
+                    <div class="value">50MP</div>
+                    <div class="label">Câmera IA</div>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="#comparativo" class="btn btn-primary">Ver Comparativo</a>
+                <a href="#vantagens" class="btn btn-outline">Conhecer Vantagens</a>
+            </div>
+        </div>
+        <div class="phone-mockup">
+            <div class="phone-frame">
+                <div class="phone-notch"></div>
+                <div class="phone-screen">
+                    <div class="phone-brand">realme</div>
+                    <div class="phone-model">C61</div>
+                    <div class="phone-icon">📱</div>
+                    <p style="color: var(--muted); font-size: 0.8rem;">6.78" IPS LCD<br>90Hz Refresh Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ESPECIFICAÇÕES -->
+<section id="specs">
+    <div class="section-title fade-up">
+        <h2>O que o <span class="highlight">Realme C61</span> entrega</h2>
+        <p>Especificações que superam a média da categoria</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card fade-up">
+            <div class="feature-icon">🖥️</div>
+            <h3>Tela de 6.78" 90Hz</h3>
+            <p>Painel IPS LCD com resolução HD+ e taxa de atualização de 90Hz para navegação fluida e vídeos cinematográficos.</p>
+        </div>
+        <div class="feature-card fade-up">
+            <div class="feature-icon">⚡</div>
+            <h3>Bateria 5000mAh + 33W</h3>
+            <p>Bateria de longa duração com carregamento rápido de 33W. Vá de 0 a 50% em apenas 30 minutos.</p>
+        </div>
+        <div class="feature-card fade-up">
+            <div class="feature-icon">📸</div>
+            <h3>Câmera 50MP com IA</h3>
+            <p>Sensor principal de 50MP com inteligência artificial para fotos nítidas, mesmo em ambientes com pouca luz.</p>
+        </div>
+        <div class="feature-card fade-up">
+            <div class="feature-icon">🧠</div>
+            <h3>Unisoc T612</h3>
+            <p>Processor octa-core de 12nm que garante desempenho suave para jogos, multitarefas e uso diário.</p>
+        </div>
+        <div class="feature-card fade-up">
+            <div class="feature-icon">💾</div>
+            <h3>6GB RAM + 128GB</h3>
+            <p>Memória RAM expandida via software (até +6GB virtual) e 128GB de armazenamento expansível via microSD.</p>
+        </div>
+        <div class="feature-card fade-up">
+            <div class="feature-icon">🛡️</div>
+            <h3>IP54 à Prova d'Água</h3>
+            <p>Certificação IP54 contra respingos e poeira. Ideal para o dia a dia sem preocupações.</p>
+        </div>
+        <div class="feature-card fade-up">
+            <div class="feature-icon">🔓</div>
+            <h3>Leitor Lateral</h3>
+            <p>Desbloqueio por impressão digital no botão lateral. Rápido, seguro e ergonômico.</p>
+        </div>
+        <div class="feature-card fade-up">
+            <div class="feature-icon">🤖</div>
+            <h3>Android 14 + Realme UI 5.0</h3>
+            <p>Sistema atualizado com interface fluida, personalização avançada e recursos de IA integrados.</p>
+        </div>
+    </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+    <div class="section-title fade-up">
+        <h2>Por que o <span class="highlight">C61</span> se destaca?</h2>
+        <p>Diferenciais que você não encontra na concorrência nessa faixa de preço</p>
+    </div>
+    <div class="benchmark-bars fade-up">
+        <div class="bench-item">
+            <label>Carregamento Rápido <span>33W — líder na categoria</span></label>
+            <div class="bench-bar"><div class="bench-fill gold" data-width="90"></div></div>
+        </div>
+        <div class="bench-item">
+            <label>Bateria <span>5000mAh — autonomia de até 2 dias</span></label>
+            <div class="bench-bar"><div class="bench-fill gold" data-width="88"></div></div>
+        </div>
+        <div class="bench-item">
+            <label>Tela <span>6.78" 90Hz — maior tela da faixa</span></label>
+            <div class="bench-bar"><div class="bench-fill gold" data-width="85"></div></div>
+        </div>
+        <div class="bench-item">
+            <label>Câmera <span>50MP IA — qualidade acima da média</span></label>
+            <div class="bench-bar"><div class="bench-fill gold" data-width="78"></div></div>
+        </div>
+        <div class="bench-item">
+            <label>Resistência <span>IP54 — raro nessa faixa de preço</span></label>
+            <div class="bench-bar"><div class="bench-fill gold" data-width="82"></div></div>
+        </div>
+        <div class="bench-item">
+            <label>Armazenamento <span>128GB + microSD — espaço de sobra</span></label>
+            <div class="bench-bar"><div class="bench-fill gold" data-width="80"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section id="comparativo">
+    <div class="section-title fade-up">
+        <h2>Comparativo <span class="highlight">Custo-Benefício</span></h2>
+        <p>Realme C61 vs. principais concorrentes na faixa de até R$1.000</p>
+    </div>
+    <div class="comparison-wrapper fade-up">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Especificação</th>
+                    <th class="highlight-col">Realme C61 ⭐</th>
+                    <th>Samsung A15</th>
+                    <th>Moto G24</th>
+                    <th>Xiaomi Redmi 13C</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tela</td>
+                    <td class="highlight-col best">6.78" 90Hz</td>
+                    <td>6.5" 90Hz</td>
+                    <td>6.56" 90Hz</td>
+                    <td>6.74" 90Hz</td>
+                </tr>
+                <tr>
+                    <td>Processador</td>
+                    <td class="highlight-col">Unisoc T612</td>
+                    <td>Helio G99</td>
+                    <td>Helio G85</td>
+                    <td>Helio G85</td>
+                </tr>
+                <tr>
+                    <td>RAM</td>
+                    <td class="highlight-col best">6GB (+6GB virtual)</td>
+                    <td>4GB</td>
+                    <td>4GB</td>
+                    <td>4GB</td>
+                </tr>
+                <tr>
+                    <td>Armazenamento</td>
+                    <td class="highlight-col best">128GB</td>
+                    <td>128GB</td>
+                    <td>128GB</td>
+                    <td>128GB</td>
+                </tr>
+                <tr>
+                    <td>Bateria</td>
+                    <td class="highlight-col best">5000mAh</td>
+                    <td>5000mAh</td>
+                    <td>5000mAh</td>
+                    <td>5000mAh</td>
+                </tr>
+                <tr>
+                    <td>Carregamento</td>
+                    <td class="highlight-col best">33W</td>
+                    <td>25W</td>
+                    <td>15W</td>
+                    <td>18W</td>
+                </tr>
+                <tr>
+                    <td>Câmera Principal</td>
+                    <td class="highlight-col best">50MP IA</td>
+                    <td>50MP</td>
+                    <td>50MP</td>
+                    <td>50MP</td>
+                </tr>
+                <tr>
+                    <td>Resistência</td>
+                    <td class="highlight-col best">IP54</td>
+                    <td>Sem certificação</td>
+                    <td>Sem certificação</td>
+                    <td>Sem certificação</td>
+                </tr>
+                <tr>
+                    <td>Sistema</td>
+                    <td class="highlight-col">Android 14</td>
+                    <td>Android 14</td>
+                    <td>Android 14</td>
+                    <td>Android 13</td>
+                </tr>
+                <tr>
+                    <td><strong>Preço Médio</strong></td>
+                    <td class="highlight-col best"><strong>R$ 799</strong></td>
+                    <td><strong>R$ 899</strong></td>
+                    <td><strong>R$ 849</strong></td>
+                    <td><strong>R$ 799</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- VANTAGENS -->
+<section id="vantagens">
+    <div class="section-title fade-up">
+        <h2>Principais <span class="highlight">Vantagens</span></h2>
+        <p>Por que o Realme C61 é a melhor escolha nessa faixa de preço</p>
+    </div>
+    <div class="pros-grid">
+        <div class="pro-item fade-up">
+            <div class="pro-check">✓</div>
+            <div>
+                <h3>Maior tela da categoria</h3>
+                <p>6.78 polegadas com 90Hz. Enquanto a maioria oferece 6.5", o C61 entrega uma experiência visual imersiva para filmes, jogos e redes sociais.</p>
+            </div>
+        </div>
+        <div class="pro-item fade-up">
+            <div class="pro-check">✓</div>
+            <div>
+                <h3>Carregamento mais rápido</h3>
+                <p>33W de carregamento vs 15-25W dos concorrentes. Recarregue em minutos, não em horas. Ideal para quem tem rotina corrida.</p>
+            </div>
+        </div>
+        <div class="pro-item fade-up">
+            <div class="pro-check">✓</div>
+            <div>
+                <h3>6GB de RAM real</h3>
+                <p>O dobro da RAM dos concorrentes diretos. Multitarefas reais sem travamentos. Abra 10 apps simultâneos sem medo.</p>
+            </div>
+        </div>
+        <div class="pro-item fade-up">
+            <div class="pro-check">✓</div>
+            <div>
+                <h3>Resistência IP54</h3>
+                <p>Único com certificação à prova d'água na faixa. Chuva, respingos e poeira não são mais um problema.</p>
+            </div>
+        </div>
+        <div class="pro-item fade-up">
+            <div class="pro-check">✓</div>
+            <div>
+                <h3>Android 14 de fábrica</h3>
+                <p>Sistema operacional mais recente com recursos de IA, melhor gestão de bateria e segurança aprimorada.</p>
+            </div>
+        </div>
+        <div class="pro-item fade-up">
+            <div class="pro-check">✓</div>
+            <div>
+                <h3>Design premium</h3>
+                <p>Acabamento sofisticado com textura de couro vegano nas costas. Parece um aparelho de R$1.500+, mas custa menos de R$800.</p>
+            </div>
+        </div>
+        <div class="pro-item fade-up">
+            <div class="pro-check">✓</div>
+            <div>
+                <h3>Expansível via microSD</h3>
+                <p>Armazenamento expansível até 1TB. Guarde todos seus fotos, vídeos e apps sem preocupação com espaço.</p>
+            </div>
+        </div>
+        <div class="pro-item fade-up">
+            <div class="pro-check">✓</div>
+            <div>
+                <h3>Leitor de digital lateral</h3>
+                <p>Desbloqueio instantâneo e ergonômico. O sensor na lateral é mais natural que na traseira e mais rápido que na tela.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-content fade-up">
+        <h2>Compensa Ter o <span style="color: var(--accent);">Realme C61</span></h2>
+        <p>O melhor custo-benefício do mercado em 2024/2025. Mais tela, mais bateria, mais velocidade — por menos.</p>
+        <div class="price-tag">R$ 799</div>
+        <div class="price-note">Preço médio — pode variar por região e loja</div>
+        <a href="#comparativo" class="btn btn-primary">Comparar Agora</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Landing Page informativa — Realme C61 | Dados com base em especificações oficiais e reviews de mercado.</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Benchmark bars animation
+    const benchObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.bench-fill').forEach(bar => {
+                    bar.style.width = bar.dataset.width + '%';
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.benchmark-bars').forEach(el => benchObserver.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

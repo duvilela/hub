@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhores Modelos Open Source Free para Codar - 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --accent: #00d4ff;
+            --accent-secondary: #7c3aed;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --border: #2a2a3e;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, -2%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); }
+        }
+
+        /* Header */
+        header {
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--success));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Model Cards */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .model-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .model-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .model-card:hover::before {
+            opacity: 1;
+        }
+
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .model-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .model-org {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+
+        .model-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-top {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .badge-new {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+        }
+
+        .badge-popular {
+            background: rgba(124, 58, 237, 0.15);
+            color: var(--accent-secondary);
+        }
+
+        .model-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .model-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            padding: 0.3rem 0.7rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .model-stats {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .model-stat {
+            text-align: center;
+        }
+
+        .model-stat-value {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .model-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .tool-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tool-card:hover {
+            border-color: var(--accent-secondary);
+            transform: translateY(-3px);
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .tool-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .tool-content p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .tool-tag {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.2rem 0.6rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent);
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Comparison Table */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: rgba(0, 212, 255, 0.05);
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        td {
+            font-size: 0.9rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .check {
+            color: var(--success);
+        }
+
+        /* Recommendation Section */
+        .recommendations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .rec-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .rec-card:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+        }
+
+        .rec-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rec-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .rec-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .rec-highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 50;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .stats {
+                gap: 2rem;
+            }
+
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading animation */
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <header>
+        <nav>
+            <div class="logo">FreeCodeAI</div>
+            <ul class="nav-links">
+                <li><a href="#modelos">Modelos</a></li>
+                <li><a href="#ferramentas">Ferramentas</a></li>
+                <li><a href="#comparacao">Comparação</a></li>
+                <li><a href="#recomendacoes">Recomendações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Atualizado Maio 2026</div>
+            <h1>Melhores Modelos <span>Open Source Free</span> para Codar</h1>
+            <p>Descubra os modelos de IA gratuitos mais poderosos para desenvolvimento de software em 2026. Sem custos, sem limites ocultos.</p>
+            <div class="cta-buttons">
+                <a href="#modelos" class="btn btn-primary">Ver Modelos</a>
+                <a href="#comparacao" class="btn btn-secondary">Comparação Completa</a>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="stat-models">0</div>
+                    <div class="stat-label">Modelos Listados</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="stat-tools">0</div>
+                    <div class="stat-label">Ferramentas Free</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="stat-savings">0%</div>
+                    <div class="stat-label">Economia vs Pago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modelos">
+        <div class="section-header">
+            <h2>Modelos Open Source</h2>
+            <p>Os melhores LLMs gratuitos e open-source otimizados para desenvolvimento de código</p>
+        </div>
+        <div class="models-grid" id="modelsGrid">
+            <!-- Cards gerados via JS -->
+        </div>
+    </section>
+
+    <section id="ferramentas">
+        <div class="section-header">
+            <h2>Ferramentas & Agentes</h2>
+            <p>IDEs, extensões e agentes de código com planos free generosos</p>
+        </div>
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Cards gerados via JS -->
+        </div>
+    </section>
+
+    <section id="comparacao">
+        <div class="section-header">
+            <h2>Tabela Comparativa</h2>
+            <p>Compare recursos e limitações de cada ferramenta lado a lado</p>
+        </div>
+        <div class="table-container">
+            <table id="comparisonTable">
+                <!-- Tabela gerada via JS -->
+            </table>
+        </div>
+    </section>
+
+    <section id="recomendacoes">
+        <div class="section-header">
+            <h2>Recomendações Rápidas</h2>
+            <p>Escolha a melhor opção baseada no seu perfil de uso</p>
+        </div>
+        <div class="recommendations" id="recsGrid">
+            <!-- Cards gerados via JS -->
+        </div>
+    </section>
+
+    <footer>
+        <p>Feito com dados de 2026 | <a href="https://github.com/vava-nessa/free-coding-models" target="_blank">free-coding-models</a> | <a href="https://agentic.ai" target="_blank">agentic.ai</a></p>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" title="Voltar ao topo">↑</button>
+
+    <script>
+        // Dados dos modelos
+        const models = [
+            {
+                name: "Qwen 3.6",
+                org: "Alibaba Cloud",
+                badge: "top",
+                badgeText: "TOP PICK",
+                desc: "Excelente para coding, lidera benchmarks com raciocínio avançado e suporte a múltiplas linguagens.",
+                features: ["Coding", "Raciocínio", "Multilíngue", "Long Context"],
+                params: "235B",
+                score: "92",
+                context: "256K"
+            },
+            {
+                name: "DeepSeek V3",
+                org: "DeepSeek AI",
+                badge: "top",
+                badgeText: "TOP PICK",
+                desc: "Modelo totalmente free com capacidades impressionantes em geração e compreensão de código.",
+                features: ["Coding", "Matemática", "API Free", "MoE"],
+                params: "671B",
+                score: "90",
+                context: "128K"
+            },
+            {
+                name: "Llama 4",
+                org: "Meta AI",
+                badge: "popular",
+                badgeText: "POPULAR",
+                desc: "Modelo da Meta com forte performance em código, totalmente open-source e amplamente adotado.",
+                features: ["Open Source", "Coding", "Multimodal", "Ecosystem"],
+                params: "400B+",
+                score: "88",
+                context: "128K"
+            },
+            {
+                name: "Gemma 4",
+                org: "Google DeepMind",
+                badge: "new",
+                badgeText: "NOVO",
+                desc: "Família de modelos do Google otimizada para eficiência, bom custo-benefício para coding local.",
+                features: ["Eficiente", "Coding", "Local", "Lightweight"],
+                params: "27B",
+                score: "84",
+                context: "32K"
+            },
+            {
+                name: "Kimi K2",
+                org: "Moonshot AI",
+                badge: "new",
+                badgeText: "NOVO",
+                desc: "Modelo poderoso para tarefas complexas de desenvolvimento com excelente contexto longo.",
+                features: ["Contexto Longo", "Coding", "Agente", "Free"],
+                params: "32B",
+                score: "85",
+                context: "256K"
+            },
+            {
+                name: "Devstral",
+                org: "Mistral AI",
+                badge: "popular",
+                badgeText: "POPULAR",
+                desc: "Modelo open-source otimizado especificamente para workflows de desenvolvimento e agentes.",
+                features: ["Dev Focused", "Agente", "Open Weights", "Eficiente"],
+                params: "24B",
+                score: "83",
+                context: "128K"
+            }
+        ];
+
+        // Dados das ferramentas
+        const tools = [
+            {
+                name: "Codeium / Windsurf",
+                desc: "Completions ilimitados no free tier, zero setup necessário",
+                tag: "Melhor Zero Setup",
+                icon: "⚡",
+                color: "#f59e0b"
+            },
+            {
+                name: "Cline",
+                desc: "Agente autônomo no VS Code com suporte a BYOK (traga sua própria key)",
+                tag: "Mais Poderoso",
+                icon: "🤖",
+                color: "#7c3aed"
+            },
+            {
+                name: "Amazon Q Developer",
+                desc: "100% free, surpreendentemente capaz para desenvolvimento diário",
+                tag: "100% Gratuito",
+                icon: "☁️",
+                color: "#ff9900"
+            },
+            {
+                name: "Cody (Sourcegraph)",
+                desc: "Completions ilimitados + 20 chats/mês no plano free",
+                tag: "Codebase Aware",
+                icon: "🔍",
+                color: "#10b981"
+            },
+            {
+                name: "Continue.dev",
+                desc: "Open-source e flexível, funciona com qualquer modelo ou provider",
+                tag: "Open Source",
+                icon: "🔧",
+                color: "#00d4ff"
+            },
+            {
+                name: "Aider",
+                desc: "Agente de terminal open-source para edição de código com IA",
+                tag: "Terminal First",
+                icon: "💻",
+                color: "#ef4444"
+            },
+            {
+                name: "cto.new",
+                desc: "Agente de código totalmente free, sem necessidade de cartão ou API keys",
+                tag: "Totalmente Free",
+                icon: "🚀",
+                color: "#3b82f6"
+            },
+            {
+                name: "GitHub Copilot",
+                desc: "Free para estudantes e mantenedores verificados de projetos open-source",
+                tag: "Estudantes / OSS",
+                icon: "🐙",
+                color: "#8b5cf6"
+            }
+        ];
+
+        // Dados da tabela comparativa
+        const comparisonData = [
+            { tool: "Codeium/Windsurf", free: "Ilimitado", api: "Não", ide: "VS Code, JetBrains", open: "Não" },
+            { tool: "Cline", free: "Ilimitado (BYOK)", api: "Sim", ide: "VS Code", open: "Sim" },
+            { tool: "Amazon Q Developer", free: "Ilimitado", api: "Não", ide: "VS Code, JetBrains", open: "Não" },
+            { tool: "Cody", free: "Ilimitado + 20 chats", api: "Não", ide: "VS Code, JetBrains, Neovim", open: "Parcial" },
+            { tool: "Continue.dev", free: "Ilimitado", api: "Sim", ide: "VS Code, JetBrains", open: "Sim" },
+            { tool: "Aider", free: "Ilimitado (BYOK)", api: "Sim", ide: "Terminal", open: "Sim" },
+            { tool: "cto.new", free: "Ilimitado", api: "Não", ide: "Web", open: "Não" },
+            { tool: "GitHub Copilot", free: "Estudantes/OSS", api: "Não", ide: "VS Code, JetBrains", open: "Não" }
+        ];
+
+        // Recomendações
+        const recommendations = [
+            {
+                icon: "⚡",
+                title: "Zero Setup",
+                desc: "Comece a codar em segundos",
+                highlight: "Codeium/Windsurf"
+            },
+            {
+                icon: "🤖",
+                title: "Mais Poderoso",
+                desc: "Agente autônomo completo",
+                highlight: "Cline + API Key"
+            },
+            {
+                icon: "🔧",
+                title: "Open Source Flexível",
+                desc: "Use qualquer modelo",
+                highlight: "Continue.dev"
+            },
+            {
+                icon: "💰",
+                title: "Totalmente Free",
+                desc: "Sem custos, sem limites",
+                highlight: "Amazon Q / cto.new"
+            }
+        ];
+
+        // Renderizar modelos
+        function renderModels() {
+            const grid = document.getElementById('modelsGrid');
+            grid.innerHTML = models.map((m, i) => `
+                <div class="model-card" style="transition-delay: ${i * 0.1}s">
+                    <div class="model-header">
+                        <div>
+                            <div class="model-name">${m.name}</div>
+                            <div class="model-org">${m.org}</div>
+                        </div>
+                        <span class="model-badge badge-${m.badge}">${m.badgeText}</span>
+                    </div>
+                    <p class="model-desc">${m.desc}</p>
+                    <div class="model-features">
+                        ${m.features.map(f => `<span class="feature-tag">${f}</span>`).join('')}
+                    </div>
+                    <div class="model-stats">
+                        <div class="model-stat">
+                            <div class="model-stat-value">${m.params}</div>
+                            <div class="model-stat-label">Parâmetros</div>
+                        </div>
+                        <div class="model-stat">
+                            <div class="model-stat-value">${m.score}</div>
+                            <div class="model-stat-label">Score Coding</div>
+                        </div>
+                        <div class="model-stat">
+                            <div class="model-stat-value">${m.context}</div>
+                            <div class="model-stat-label">Contexto</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Renderizar ferramentas
+        function renderTools() {
+            const grid = document.getElementById('toolsGrid');
+            grid.innerHTML = tools.map((t, i) => `
+                <div class="tool-card" style="transition-delay: ${i * 0.08}s">
+                    <div class="tool-icon" style="background: ${t.color}22; color: ${t.color}">${t.icon}</div>
+                    <div class="tool-content">
+                        <h3>${t.name}</h3>
+                        <p>${t.desc}</p>
+                        <span class="tool-tag">${t.tag}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Renderizar tabela
+        function renderTable() {
+            const table = document.getElementById('comparisonTable');
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Ferramenta</th>
+                        <th>Free Tier</th>
+                        <th>API Keys</th>
+                        <th>IDE Suportado</th>
+                        <th>Open Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${comparisonData.map(r => `
+                        <tr>
+                            <td><strong>${r.tool}</strong></td>
+                            <td>${r.free}</td>
+                            <td>${r.api === 'Sim' ? '<span class="check">✓</span> Sim' : 'Não necessário'}</td>
+                            <td>${r.ide}</td>
+                            <td>${r.open === 'Sim' ? '<span class="check">✓</span>' : r.open === 'Parcial' ? 'Parcial' : '—'}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+        }
+
+        // Renderizar recomendações
+        function renderRecs() {
+            const grid = document.getElementById('recsGrid');
+            grid.innerHTML = recommendations.map(r => `
+                <div class="rec-card">
+                    <div class="rec-icon">${r.icon}</div>
+                    <h3>${r.title}</h3>
+                    <p>${r.desc}</p>
+                    <p class="rec-highlight">${r.highlight}</p>
+                </div>
+            `).join('');
+        }
+
+        // Animação de scroll
+        function handleScrollAnimations() {
+            const cards = document.querySelectorAll('.model-card, .tool-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+        }
+
+        // Animação de contagem
+        function animateCounter(elementId, target, suffix = '') {
+            const el = document.getElementById(elementId);
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = Math.floor(current) + suffix;
+            }, 30);
+        }
+
+        // Scroll to top button
+        function initScrollTop() {
+            const btn = document.getElementById('scrollTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            });
+            btn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Smooth scroll para links
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            renderModels();
+            renderTools();
+            renderTable();
+            renderRecs();
+            handleScrollAnimations();
+            initScrollTop();
+            initSmoothScroll();
+
+            // Animar contadores
+            setTimeout(() => {
+                animateCounter('stat-models', 6);
+                animateCounter('stat-tools', 8);
+                animateCounter('stat-savings', 100, '%');
+            }, 500);
+        });
+    </script>
+</body>
+</html>

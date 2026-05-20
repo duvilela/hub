@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neymar Jr | Copa 2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #061b14;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(120deg, rgba(0, 70, 35, 0.9), rgba(2, 15, 10, 0.82)),
+        radial-gradient(circle at top right, rgba(255, 220, 0, 0.45), transparent 35%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 32px 8%;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #ffdf00;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      opacity: 0.9;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffdf00;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 48px;
+      padding: 80px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffdf00;
+      color: #053b24;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: clamp(46px, 8vw, 104px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: #ffdf00;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #e8fff4;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 14px;
+      padding: 16px 24px;
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #ffdf00;
+      color: #053b24;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-card {
+      background: linear-gradient(160deg, #ffdf00, #0a8f4c 55%, #003c22);
+      border-radius: 36px;
+      min-height: 520px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .player-number {
+      font-size: 190px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.22);
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      line-height: 1;
+    }
+
+    .player-name {
+      position: absolute;
+      bottom: 34px;
+      left: 36px;
+      right: 36px;
+      z-index: 2;
+    }
+
+    .player-name h2 {
+      font-size: 44px;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .player-name p {
+      color: #f4ffe2;
+      font-weight: 700;
+    }
+
+    .ball {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 30%, #ffffff 0 12%, transparent 13%),
+        repeating-conic-gradient(from 20deg, #ffffff 0 12deg, #111111 12deg 22deg, #ffffff 22deg 34deg);
+      right: 54px;
+      bottom: 150px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-24px) rotate(12deg); }
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 58px);
+      margin-bottom: 20px;
+      color: #ffdf00;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      color: #cde9dd;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+
+    .stats {
+      background: #08251a;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .stat-card {
+      background: #0d3526;
+      padding: 32px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-card strong {
+      display: block;
+      color: #ffdf00;
+      font-size: 44px;
+      margin-bottom: 10px;
+    }
+
+    .stat-card span {
+      color: #e8fff4;
+      font-weight: 700;
+    }
+
+    .journey {
+      background: #061b14;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 20px;
+      max-width: 900px;
+    }
+
+    .timeline-item {
+      background: #0d3526;
+      padding: 28px;
+      border-left: 6px solid #ffdf00;
+      border-radius: 18px;
+    }
+
+    .timeline-item h3 {
+      color: #ffdf00;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .timeline-item p {
+      color: #d6f7e8;
+      line-height: 1.7;
+    }
+
+    .cta {
+      background: linear-gradient(120deg, #ffdf00, #18a558);
+      color: #053b24;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(34px, 5vw, 62px);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .cta p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      font-size: 19px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    footer {
+      background: #03100b;
+      color: #9fcab9;
+      text-align: center;
+      padding: 28px 8%;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        min-height: 420px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      header {
+        padding: 24px 6%;
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav ul {
+        gap: 14px;
+      }
+
+      section {
+        padding: 64px 6%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .player-number {
+        font-size: 130px;
+      }
+
+      .ball {
+        width: 120px;
+        height: 120px;
+        right: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="inicio">
+    <nav>
+      <div class="logo">NJ10 2026</div>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#numeros">Números</a></li>
+        <li><a href="#trajetoria">Trajetória</a></li>
+        <li><a href="#torcida">Torcida</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <span class="badge">Rumo à Copa do Mundo 2026</span>
+        <h1>Neymar <span>Jr</span></h1>
+        <p>
+          Uma landing page dedicada ao talento, à história e à expectativa da torcida brasileira
+          para ver Neymar brilhando novamente com a camisa da Seleção na Copa de 2026.
+        </p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#numeros">Ver números</a>
+          <a class="btn btn-secondary" href="#trajetoria">Conhecer trajetória</a>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-label="Card Neymar Copa 2026">
+        <div class="player-number">10</div>
+        <div class="ball"></div>
+        <div class="player-name">
+          <h2>Brasil em campo</h2>
+          <p>Talento, ousadia e esperança para 2026.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats" id="numeros">
+    <h2 class="section-title">Números de craque</h2>
+    <p class="section-subtitle">
+      Neymar construiu uma carreira marcada por gols, assistências, títulos e momentos decisivos.
+      Estes destaques representam o impacto do camisa 10 no futebol mundial.
+    </p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <strong>10</strong>
+        <span>Camisa histórica</span>
+      </div>
+      <div class="stat-card">
+        <strong>100+</strong>
+        <span>Jogos pela Seleção</span>
+      </div>
+      <div class="stat-card">
+        <strong>79+</strong>
+        <span>Gols pelo Brasil</span>
+      </div>
+      <div class="stat-card">
+        <strong>2026</strong>
+        <span>Nova missão</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey" id="trajetoria">
+    <h2 class="section-title">Trajetória</h2>
+    <p class="section-subtitle">
+      Da Vila Belmiro aos maiores palcos do mundo, Neymar se tornou símbolo de criatividade,
+      drible e protagonismo no futebol brasileiro.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Santos</h3>
+        <p>O início de uma carreira brilhante, com dribles, gols e títulos que chamaram atenção do mundo.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Europa</h3>
+        <p>Consolidação internacional, enfrentando os maiores clubes e atletas do planeta.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Seleção Brasileira</h3>
+        <p>O camisa 10 assumiu o protagonismo e se tornou uma das principais referências do Brasil.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Copa 2026</h3>
+        <p>Uma nova oportunidade para escrever mais um capítulo marcante com a camisa amarelinha.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="torcida">
+    <h2>A torcida acredita</h2>
+    <p>
+      A Copa de 2026 pode ser mais uma chance de ver Neymar decidir, emocionar e representar
+      o futebol brasileiro no maior palco do mundo.
+    </p>
+    <a class="btn btn-primary" href="#inicio">Voltar ao topo</a>
+  </section>
+
+  <footer>
+    <p>Landing Page Neymar Jr Copa 2026 | Projeto HTML e CSS</p>
+  </footer>
+</body>
+</html>
