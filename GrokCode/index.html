@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 17 - Apple</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-black font-sans">
+    <!-- Navigation -->
+    <nav class="border-b border-gray-200 bg-white/95 backdrop-blur-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-2xl font-semibold tracking-tight">Apple</div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-10 text-sm font-medium">
+                    <a href="#design" class="hover:text-gray-600 transition-colors">Design</a>
+                    <a href="#camera" class="hover:text-gray-600 transition-colors">Câmera</a>
+                    <a href="#performance" class="hover:text-gray-600 transition-colors">Desempenho</a>
+                    <a href="#specs" class="hover:text-gray-600 transition-colors">Especificações</a>
+                </div>
+
+                <!-- Right side -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="scrollToSection('buy')" 
+                            class="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                        Comprar
+                    </button>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-white px-6 py-4">
+            <div class="flex flex-col space-y-3 text-sm font-medium">
+                <a href="#design" class="py-1">Design</a>
+                <a href="#camera" class="py-1">Câmera</a>
+                <a href="#performance" class="py-1">Desempenho</a>
+                <a href="#specs" class="py-1">Especificações</a>
+                <button onclick="scrollToSection('buy')" 
+                        class="bg-black text-white px-6 py-2 rounded-full text-sm font-medium w-fit mt-2">
+                    Comprar
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-gray-100 text-xs font-medium tracking-widest mb-6">
+                LANÇAMENTO 2026
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-semibold tracking-tighter mb-4">iPhone 17</h1>
+            <p class="text-2xl md:text-3xl text-gray-600 tracking-tight mb-8">O mais poderoso. O mais bonito. O mais inteligente.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('buy')"
+                        class="bg-black text-white px-8 py-3.5 rounded-full font-medium text-lg hover:bg-gray-900 transition-all active:scale-[0.985]">
+                    Comprar a partir de R$ 8.999
+                </button>
+                <button onclick="document.getElementById('video-modal').showModal()"
+                        class="flex items-center justify-center gap-2 border border-gray-300 px-8 py-3.5 rounded-full font-medium text-lg hover:bg-gray-50 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 4.01V8" />
+                    </svg>
+                    Ver o filme
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-500 mt-4">Entrega em até 2 dias úteis • Frete grátis</p>
+        </div>
+
+        <!-- Hero Visual -->
+        <div class="flex justify-center pb-12">
+            <div class="relative">
+                <!-- Phone mockup -->
+                <div class="w-72 h-[580px] bg-black rounded-[60px] p-3 shadow-2xl">
+                    <div class="w-full h-full bg-white rounded-[50px] overflow-hidden relative">
+                        <!-- Status bar -->
+                        <div class="h-11 bg-black flex items-end justify-center">
+                            <div class="w-32 h-7 bg-white rounded-t-full flex items-center justify-center">
+                                <div class="w-2 h-2 bg-black rounded-full"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen content -->
+                        <div class="p-6 bg-gradient-to-b from-gray-50 to-white h-[calc(100%-44px)] flex flex-col">
+                            <div class="flex justify-between items-center mb-8">
+                                <div>
+                                    <div class="text-xs text-gray-500">Olá, João</div>
+                                    <div class="font-semibold text-xl">22 de maio</div>
+                                </div>
+                                <div class="w-9 h-9 bg-gray-200 rounded-full"></div>
+                            </div>
+                            
+                            <div class="flex-1 flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-4xl font-semibold tracking-tighter">iPhone 17</div>
+                                    <div class="text-xs text-gray-400 mt-1">Pro Max • Titânio</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-[10px] text-center text-gray-400">Deslize para desbloquear</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Subtle glow -->
+                <div class="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-[80px] -z-10 blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <div class="text-sm font-medium tracking-[3px] text-gray-500 mb-2">O QUE HÁ DE NOVO</div>
+            <h2 class="text-4xl font-semibold tracking-tighter">Inovação em cada detalhe</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-colors">
+                <div class="text-3xl mb-6">⚡</div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">A19 Pro</h3>
+                <p class="text-gray-600 leading-relaxed">O chip mais rápido do mundo em um smartphone. Desempenho até 30% superior e eficiência energética revolucionária.</p>
+            </div>
+            <div class="bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-colors">
+                <div class="text-3xl mb-6">📷</div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">Câmera 48MP com IA</h3>
+                <p class="text-gray-600 leading-relaxed">Sistema de câmera tripla com sensor principal de 48MP, zoom óptico 5x e processamento de imagem com inteligência artificial avançada.</p>
+            </div>
+            <div class="bg-gray-50 rounded-3xl p-8 hover:bg-gray-100 transition-colors">
+                <div class="text-3xl mb-6">🪟</div>
+                <h3 class="font-semibold text-2xl tracking-tight mb-3">Face ID sob a tela</h3>
+                <p class="text-gray-600 leading-relaxed">A primeira tela iPhone sem entalhe. Tecnologia sob o display que mantém a experiência imersiva perfeita.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Section -->
+    <section id="design" class="bg-black text-white py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="uppercase tracking-[4px] text-xs mb-4 text-white/60">DESIGN PREMIUM</div>
+                    <h2 class="text-5xl font-semibold tracking-tighter leading-none mb-6">Titânio de<br>grau aeroespacial</h2>
+                    <p class="text-lg text-white/70 max-w-md">Mais leve, mais resistente e mais bonito. Disponível em cinco acabamentos exclusivos que capturam a luz de forma única.</p>
+                    
+                    <div class="mt-8 flex gap-3">
+                        <div class="w-8 h-8 rounded-full bg-[#8B7355] ring-1 ring-white/30"></div>
+                        <div class="w-8 h-8 rounded-full bg-black ring-1 ring-white/30"></div>
+                        <div class="w-8 h-8 rounded-full bg-white ring-1 ring-white/30"></div>
+                        <div class="w-8 h-8 rounded-full bg-[#3B82F6] ring-1 ring-white/30"></div>
+                        <div class="w-8 h-8 rounded-full bg-[#1F2937] ring-1 ring-white/30"></div>
+                    </div>
+                    <p class="text-xs mt-2 text-white/50">Titânio Natural • Preto Espacial • Branco Estelar • Azul Oceano • Grafite</p>
+                </div>
+                
+                <div class="relative">
+                    <div class="aspect-[9/16] bg-gradient-to-br from-gray-800 to-black rounded-3xl p-4 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-[80px] leading-none font-semibold tracking-[-6px]">17</div>
+                            <div class="text-xs tracking-[4px] mt-1">PRO MAX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Camera Section -->
+    <section id="camera" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <div class="text-sm font-medium tracking-[3px] text-gray-500 mb-2">FOTOGRAFIA PROFISSIONAL</div>
+            <h2 class="text-4xl font-semibold tracking-tighter">Captura o mundo como nunca antes</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="rounded-3xl overflow-hidden bg-gray-900 text-white p-10">
+                <h3 class="text-3xl font-semibold tracking-tight mb-4">Sensor principal 48MP</h3>
+                <p class="text-white/70 text-lg">Detalhes impressionantes mesmo em baixa luz. Novo processador de imagem com IA captura cores mais vivas e naturais.</p>
+                
+                <div class="mt-10 grid grid-cols-2 gap-4 text-sm">
+                    <div>
+                        <div class="font-medium">4K 120fps</div>
+                        <div class="text-white/60 text-xs">Vídeo em câmera lenta</div>
+                    </div>
+                    <div>
+                        <div class="font-medium">Night Mode 2.0</div>
+                        <div class="text-white/60 text-xs">Fotos incríveis à noite</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rounded-3xl overflow-hidden bg-gray-50 p-10">
+                <h3 class="text-3xl font-semibold tracking-tight mb-4">Telefoto 5x</h3>
+                <p class="text-gray-600 text-lg">Zoom óptico de qualidade profissional com estabilização óptica de imagem e foco automático.</p>
+                
+                <div class="mt-8">
+                    <div class="flex items-center gap-2 text-sm">
+                        <div class="px-3 py-1 bg-white rounded-full text-xs font-medium">5x</div>
+                        <div class="text-gray-500">Zoom óptico</div>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm mt-1">
+                        <div class="px-3 py-1 bg-white rounded-full text-xs font-medium">15x</div>
+                        <div class="text-gray-500">Zoom digital</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance -->
+    <section id="performance" class="bg-gray-50 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="text-sm font-medium tracking-[3px] text-gray-500 mb-2">DESEMPENHO INIGUALÁVEL</div>
+                <h2 class="text-5xl font-semibold tracking-tighter mb-6">A19 Pro.<br>Imbatível.</h2>
+                <p class="text-xl text-gray-600">O chip mais avançado da Apple, fabricado em processo de 2nm. Desempenho de CPU até 30% mais rápido e gráficos 40% mais rápidos que a geração anterior.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14">
+                <div class="bg-white rounded-2xl p-6 text-center">
+                    <div class="text-4xl font-semibold tracking-tighter">30%</div>
+                    <div class="text-sm text-gray-500 mt-1">mais rápido</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center">
+                    <div class="text-4xl font-semibold tracking-tighter">40%</div>
+                    <div class="text-sm text-gray-500 mt-1">melhor em gráficos</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center">
+                    <div class="text-4xl font-semibold tracking-tighter">2nm</div>
+                    <div class="text-sm text-gray-500 mt-1">processo de fabricação</div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center">
+                    <div class="text-4xl font-semibold tracking-tighter">18h</div>
+                    <div class="text-sm text-gray-500 mt-1">de vídeo contínuo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs -->
+    <section id="specs" class="max-w-4xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-semibold tracking-tighter">Especificações técnicas</h2>
+        </div>
+
+        <div class="divide-y text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 py-6">
+                <div class="font-medium text-gray-500">Tela</div>
+                <div class="md:col-span-2 mt-1 md:mt-0">6,9" Super Retina XDR OLED, 120Hz ProMotion, 3000 nits de brilho, vidro Ceramic Shield</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 py-6">
+                <div class="font-medium text-gray-500">Chip</div>
+                <div class="md:col-span-2 mt-1 md:mt-0">A19 Pro com Neural Engine de 16 núcleos</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 py-6">
+                <div class="font-medium text-gray-500">Câmera Traseira</div>
+                <div class="md:col-span-2 mt-1 md:mt-0">48MP principal + 48MP ultra-wide + 12MP telephoto 5x</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 py-6">
+                <div class="font-medium text-gray-500">Câmera Frontal</div>
+                <div class="md:col-span-2 mt-1 md:mt-0">12MP TrueDepth com Face ID sob a tela</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 py-6">
+                <div class="font-medium text-gray-500">Bateria</div>
+                <div class="md:col-span-2 mt-1 md:mt-0">Até 32 horas de reprodução de vídeo (Pro Max)</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 py-6">
+                <div class="font-medium text-gray-500">Armazenamento</div>
+                <div class="md:col-span-2 mt-1 md:mt-0">256GB • 512GB • 1TB</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 py-6">
+                <div class="font-medium text-gray-500">Conectividade</div>
+                <div class="md:col-span-2 mt-1 md:mt-0">5G, Wi-Fi 7, Bluetooth 6.0, USB-C com Thunderbolt</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buy / CTA Section -->
+    <section id="buy" class="bg-black text-white py-20">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-semibold tracking-tighter mb-4">Pronto para o futuro?</h2>
+            <p class="text-xl text-white/70 mb-10">Escolha seu iPhone 17 hoje e receba em casa com entrega expressa.</p>
+            
+            <div class="max-w-md mx-auto">
+                <div class="bg-white/10 backdrop-blur rounded-3xl p-8">
+                    <div class="text-left mb-6">
+                        <div class="flex justify-between items-end mb-1">
+                            <div>
+                                <div class="font-semibold text-2xl">iPhone 17 Pro Max</div>
+                                <div class="text-sm text-white/60">Titânio • 256GB</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-semibold text-2xl">R$ 10.999</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="handlePreOrder()"
+                            class="w-full bg-white text-black py-3.5 rounded-full font-semibold text-lg hover:bg-gray-200 transition-colors active:scale-[0.985]">
+                        Comprar agora
+                    </button>
+                    
+                    <p class="text-[10px] text-white/40 mt-3">Ou em até 12x de R$ 916,58 sem juros</p>
+                </div>
+            </div>
+            
+            <div class="text-xs text-white/40 mt-6">Disponível em todas as lojas Apple a partir de 12 de setembro de 2026</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t py-10 text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-y-4 items-center">
+                <div>© 2026 Apple Inc. Todos os direitos reservados.</div>
+                <div class="flex gap-x-6">
+                    <a href="#" class="hover:text-gray-900">Privacidade</a>
+                    <a href="#" class="hover:text-gray-900">Termos</a>
+                    <a href="#" class="hover:text-gray-900">Legal</a>
+                    <a href="#" class="hover:text-gray-900">Contato</a>
+                </div>
+            </div>
+            <div class="text-center md:text-left mt-6 text-[10px]">Este é um site conceitual criado para demonstração. iPhone 17 é um produto fictício.</div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <dialog id="video-modal" class="rounded-3xl p-0 max-w-3xl w-full backdrop:bg-black/80">
+        <div class="bg-black rounded-3xl overflow-hidden">
+            <div class="flex justify-end p-4">
+                <button onclick="document.getElementById('video-modal').close()" class="text-white/70 hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="aspect-video bg-gradient-to-br from-gray-900 to-black flex items-center justify-center">
+                <div class="text-center text-white">
+                    <div class="mx-auto w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4">
+                        ▶
+                    </div>
+                    <div class="text-lg">Trailer oficial do iPhone 17</div>
+                    <div class="text-xs text-white/50 mt-1">Vídeo em alta qualidade (4K)</div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
