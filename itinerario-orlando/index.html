@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Planejamento de viagem de luxo acessível de São Paulo para Orlando. Roteiro de 5 dias, hospedagens recomendadas, projeção de gastos e dicas práticas.">
+    <title>São Paulo ➔ Orlando | Roteiro Exclusivo de 5 Dias</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Decoration Glows -->
+    <div class="glow-bg glow-bg-1"></div>
+    <div class="glow-bg glow-bg-2"></div>
+    <div class="glow-bg glow-bg-3"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fa-solid fa-plane-departure logo-icon"></i>
+                <span>SP<span>➔</span>MCO</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#summary" class="nav-link"><i class="fa-solid fa-passport"></i> Resumo</a></li>
+                <li><a href="#itinerary" class="nav-link"><i class="fa-solid fa-calendar-day"></i> Roteiro</a></li>
+                <li><a href="#regions" class="nav-link"><i class="fa-solid fa-map-location-dot"></i> Onde Ficar</a></li>
+                <li><a href="#hotels" class="nav-link"><i class="fa-solid fa-hotel"></i> Hotéis</a></li>
+                <li><a href="#attractions" class="nav-link"><i class="fa-solid fa-ticket"></i> Atrações</a></li>
+                <li><a href="#restaurants" class="nav-link"><i class="fa-solid fa-utensils"></i> Gastronomia</a></li>
+                <li><a href="#expenses" class="nav-link"><i class="fa-solid fa-chart-pie"></i> Gastos</a></li>
+                <li><a href="#recommendation" class="nav-link nav-btn"><i class="fa-solid fa-star"></i> Recomendação</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <div class="badge animate-fade-in"><i class="fa-solid fa-sparkles"></i> Roteiro de Viagem Planejado</div>
+            <h1 class="hero-title animate-fade-in">De São Paulo para <span class="highlight-text">Orlando</span></h1>
+            <p class="hero-subtitle animate-fade-in-delay">O guia definitivo e prático para uma experiência inesquecível de 5 dias na capital mundial da diversão.</p>
+            <div class="hero-cta animate-fade-in-delay-2">
+                <a href="#itinerary" class="btn btn-primary">Ver Roteiro Completo <i class="fa-solid fa-arrow-down"></i></a>
+                <a href="#expenses" class="btn btn-secondary">Projeção de Custos <i class="fa-solid fa-dollar-sign"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+        <!-- 1. Travel Summary -->
+        <section id="summary" class="section-container">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-passport"></i></div>
+                <div>
+                    <h2 class="section-title">Resumo da Viagem</h2>
+                    <p class="section-subtitle">Informações fundamentais sobre o planejamento da jornada</p>
+                </div>
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="card-glow"></div>
+                    <div class="summary-icon"><i class="fa-solid fa-calendar"></i></div>
+                    <h3>Duração</h3>
+                    <p class="summary-value">5 Dias / 4 Noites</p>
+                    <p class="summary-details">Aproveitamento máximo do tempo útil</p>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-glow"></div>
+                    <div class="summary-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Viajantes</h3>
+                    <p class="summary-value">2 Adultos</p>
+                    <p class="summary-details">Perfeito para casais ou amigos</p>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-glow"></div>
+                    <div class="summary-icon"><i class="fa-solid fa-plane-flight"></i></div>
+                    <h3>Origem ➔ Destino</h3>
+                    <p class="summary-value">GRU ➔ MCO</p>
+                    <p class="summary-details">São Paulo para Orlando (Flórida)</p>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-glow"></div>
+                    <div class="summary-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <h3>Moeda Base</h3>
+                    <p class="summary-value">Dólar Americano</p>
+                    <p class="summary-value-sub">USD ($)</p>
+                    <p class="summary-details">Todos os valores calculados na moeda local</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Day-by-day Itinerary -->
+        <section id="itinerary" class="section-container">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                <div>
+                    <h2 class="section-title">Roteiro Dia a Dia</h2>
+                    <p class="section-subtitle">Um roteiro objetivo focado em eficiência e experiências de alto impacto</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <!-- Day 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-badge">Dia 1</div>
+                    <div class="timeline-content card">
+                        <div class="card-header-badge"><i class="fa-solid fa-plane-arrival"></i> Chegada & Disney Springs</div>
+                        <h3>Chegada, Check-in & Magia Inicial</h3>
+                        <p>Desembarque no Aeroporto Internacional de Orlando (MCO) pela manhã. Retirada do carro alugado e check-in no hotel selecionado para acomodação e descanso breve do voo.</p>
+                        <div class="timeline-highlights">
+                            <span class="highlight-tag"><i class="fa-solid fa-car"></i> Retirada de Veículo</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-hotel"></i> Check-in & Organização</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-bag-shopping"></i> Tarde/Noite em Disney Springs</span>
+                        </div>
+                        <p class="timeline-note"><strong>Dica:</strong> Explore o complexo Disney Springs no fim da tarde. O acesso é gratuito, tem excelentes opções gastronômicas para o primeiro jantar e lojas icônicas como a <em>World of Disney</em>.</p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-badge">Dia 2</div>
+                    <div class="timeline-content card">
+                        <div class="card-header-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Magic Kingdom</div>
+                        <h3>O Reino Encantado da Disney</h3>
+                        <p>Dedique o dia inteiro ao parque mais icônico do mundo. Chegue cedo para o <em>Rope Drop</em> (abertura do parque) para aproveitar as atrações mais concorridas como Space Mountain e Seven Dwarfs Mine Train com menos filas.</p>
+                        <div class="timeline-highlights">
+                            <span class="highlight-tag"><i class="fa-solid fa-castle"></i> Castelo da Cinderela</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-bolt"></i> Tron Lightcycle / Run</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-fireworks"></i> Show Happily Ever After</span>
+                        </div>
+                        <p class="timeline-note"><strong>Dica:</strong> Fique até o encerramento para o emocionante show de fogos e projeções no castelo. Planeje as refeições pelo aplicativo oficial para otimizar tempo.</p>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-badge">Dia 3</div>
+                    <div class="timeline-content card">
+                        <div class="card-header-badge"><i class="fa-solid fa-film"></i> Islands of Adventure</div>
+                        <h3>Aventuras Épicas & O Mundo de Harry Potter</h3>
+                        <p>Dia dedicado ao parque mais tecnológico e radical de Orlando, o Universal's Islands of Adventure. Explore as áreas de Marvel, Jurassic Park e a espetacular Hogsmeade (Harry Potter).</p>
+                        <div class="timeline-highlights">
+                            <span class="highlight-tag"><i class="fa-solid fa-hat-wizard"></i> Wizarding World</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-dragon"></i> VelociCoaster (Montanha-Russa)</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-mask"></i> Spider-Man Adventure</span>
+                        </div>
+                        <p class="timeline-note"><strong>Dica:</strong> A VelociCoaster e a Hagrid’s Magical Creatures Motorbike Adventure são atrações imperdíveis. Considere o Universal Express Pass se o orçamento permitir.</p>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-badge">Dia 4</div>
+                    <div class="timeline-content card">
+                        <div class="card-header-badge"><i class="fa-solid fa-globe"></i> Epcot & Alta Gastronomia</div>
+                        <h3>Futuro, Tecnologia & Culturas do Mundo</h3>
+                        <p>Explore o Epcot. Pela manhã, aproveite as atrações tecnológicas do World Discovery e World Nature. À tarde, faça uma jornada incrível ao redor do mundo na World Showcase, provando comidas típicas em 11 pavilhões de países.</p>
+                        <div class="timeline-highlights">
+                            <span class="highlight-tag"><i class="fa-solid fa-music"></i> Guardians of the Galaxy: Cosmic Rewind</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-earth-americas"></i> World Showcase</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-space-station-luna"></i> Soarin' Around the World</span>
+                        </div>
+                        <p class="timeline-note"><strong>Dica:</strong> A montanha-russa do Guardiões da Galáxia é amplamente considerada a melhor de Orlando. Reserve a fila virtual ou compre o Lightning Lane Individual às 7h da manhã.</p>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-badge">Dia 5</div>
+                    <div class="timeline-content card">
+                        <div class="card-header-badge"><i class="fa-solid fa-plane-departure"></i> Animal Kingdom & Retorno</div>
+                        <h3>Natureza Selvagem, Pandora & Despedida</h3>
+                        <p>Faça o check-out do hotel bem cedo e rume para o Disney's Animal Kingdom. Maravilhe-se com o mundo de Avatar no início da manhã. Após o almoço, siga para o aeroporto internacional para devolução do carro e embarque de volta a São Paulo.</p>
+                        <div class="timeline-highlights">
+                            <span class="highlight-tag"><i class="fa-solid fa-tree"></i> Árvore da Vida</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-alien"></i> Flight of Passage (Pandora)</span>
+                            <span class="highlight-tag"><i class="fa-solid fa-paw"></i> Kilimanjaro Safaris</span>
+                        </div>
+                        <p class="timeline-note"><strong>Dica:</strong> A atração de Avatar (Flight of Passage) simula o voo em um Banshee e é uma das mais lindas e imersivas experiências tecnológicas da atualidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Best regions to stay -->
+        <section id="regions" class="section-container">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div>
+                    <h2 class="section-title">Melhores Regiões para Ficar</h2>
+                    <p class="section-subtitle">Localizações estratégicas de acordo com seu estilo de viagem e prioridades</p>
+                </div>
+            </div>
+
+            <div class="regions-container">
+                <!-- Region 1 -->
+                <div class="region-card">
+                    <div class="region-img-fallback"><i class="fa-solid fa-road"></i></div>
+                    <div class="region-content">
+                        <h3>International Drive (I-Drive)</h3>
+                        <p class="region-meta"><i class="fa-solid fa-star text-accent"></i> Localização Mais Central & Ativa</p>
+                        <p>É a avenida principal de turismo em Orlando. Abriga centenas de restaurantes, outlets (Premium Outlets), atrações menores (como a Icon Park) e fica extremamente perto dos parques da Universal Studios.</p>
+                        <ul class="region-points">
+                            <li><i class="fa-solid fa-check"></i> Próximo a restaurantes acessíveis de fast-food e jantares formais.</li>
+                            <li><i class="fa-solid fa-check"></i> Acesso fácil ao transporte turístico (I-Ride Trolley).</li>
+                            <li><i class="fa-solid fa-check"></i> A apenas 5-10 minutos dos parques da Universal.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Region 2 -->
+                <div class="region-card">
+                    <div class="region-img-fallback"><i class="fa-solid fa-water"></i></div>
+                    <div class="region-content">
+                        <h3>Lake Buena Vista</h3>
+                        <p class="region-meta"><i class="fa-solid fa-star text-accent"></i> Área Oficial & Conveniência Disney</p>
+                        <p>Zona oficial colada ao complexo da Disney. É extremamente limpa, arborizada e segura. Ideal para quem prioriza passar os dias nos parques temáticos da Disney e quer acesso rápido.</p>
+                        <ul class="region-points">
+                            <li><i class="fa-solid fa-check"></i> Praticamente dentro das propriedades da Walt Disney World.</li>
+                            <li><i class="fa-solid fa-check"></i> Hotéis excelentes com transfer gratuito para parques Disney.</li>
+                            <li><i class="fa-solid fa-check"></i> Ambiente mais tranquilo e residencial de alto padrão.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Region 3 -->
+                <div class="region-card">
+                    <div class="region-img-fallback"><i class="fa-solid fa-house-chimney"></i></div>
+                    <div class="region-content">
+                        <h3>Kissimmee</h3>
+                        <p class="region-meta"><i class="fa-solid fa-star text-accent"></i> Economia & Casas de Férias</p>
+                        <p>Município vizinho a Orlando, muito colado ao Magic Kingdom. É a capital mundial das casas de veraneio para aluguel de temporada. Excelente para economizar em estadias longas ou grupos grandes.</p>
+                        <ul class="region-points">
+                            <li><i class="fa-solid fa-check"></i> Preços de diárias muito mais baixos que Orlando/Lake Buena Vista.</li>
+                            <li><i class="fa-solid fa-check"></i> Supermercados gigantescos e lojas com preços ótimos por perto.</li>
+                            <li><i class="fa-solid fa-check"></i> Opções de condomínios fechados de altíssima qualidade.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Budget/value hotels & 5. Expensive/convenient hotels -->
+        <section id="hotels" class="section-container">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-hotel"></i></div>
+                <div>
+                    <h2 class="section-title">Opções de Hospedagem Selecionadas</h2>
+                    <p class="section-subtitle">Escolhas inteligentes de excelente custo-benefício e experiências luxuosas e convenientes</p>
+                </div>
+            </div>
+
+            <!-- 4. Budget / Value Hotels (3 opções) -->
+            <div class="hotel-section-title">
+                <span class="hotel-category-badge budget-badge"><i class="fa-solid fa-wallet"></i> Melhor Custo-Benefício</span>
+                <h3>Excelência em Preço, Localização e Conforto</h3>
+            </div>
+            
+            <div class="hotels-grid">
+                <!-- Hotel Budget 1 -->
+                <div class="hotel-card">
+                    <div class="hotel-header">
+                        <span class="hotel-price">$85 - $120 <small>/ noite</small></span>
+                        <h4>Rosen Inn at Pointe Orlando</h4>
+                    </div>
+                    <div class="hotel-body">
+                        <p class="hotel-location"><i class="fa-solid fa-location-dot"></i> International Drive</p>
+                        <p class="hotel-desc">Um clássico favorito dos brasileiros. Oferece quartos confortáveis, estacionamento gratuito (raridade em Orlando), segurança 24h e fica na frente do complexo Pointe Orlando.</p>
+                        <div class="hotel-amenities">
+                            <span><i class="fa-solid fa-square-parking"></i> Grátis</span>
+                            <span><i class="fa-solid fa-wifi"></i> Fibra</span>
+                            <span><i class="fa-solid fa-swimming-pool"></i> 3 Piscinas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel Budget 2 -->
+                <div class="hotel-card">
+                    <div class="hotel-header">
+                        <span class="hotel-price">$110 - $140 <small>/ noite</small></span>
+                        <h4>Fairfield Inn near Universal</h4>
+                    </div>
+                    <div class="hotel-body">
+                        <p class="hotel-location"><i class="fa-solid fa-location-dot"></i> Próximo à Universal Studios</p>
+                        <p class="hotel-desc">Padrão de qualidade confiável da rede Marriott. Conta com café da manhã incluso na diária (excelente para economia), piscina moderna e transfer diário para os parques da Universal.</p>
+                        <div class="hotel-amenities">
+                            <span><i class="fa-solid fa-mug-hot"></i> Café Incluído</span>
+                            <span><i class="fa-solid fa-bus"></i> Shuttle Parques</span>
+                            <span><i class="fa-solid fa-dumbbell"></i> Academia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel Budget 3 -->
+                <div class="hotel-card">
+                    <div class="hotel-header">
+                        <span class="hotel-price">$90 - $130 <small>/ noite</small></span>
+                        <h4>Celebration Suites</h4>
+                    </div>
+                    <div class="hotel-body">
+                        <p class="hotel-location"><i class="fa-solid fa-location-dot"></i> Celebration / Old Town</p>
+                        <p class="hotel-desc">Quartos extremamente amplos em estilo apartamento com cozinha totalmente equipada (geladeira, fogão, micro-ondas). Ótimo para quem deseja cozinhar e economizar muito no mercado.</p>
+                        <div class="hotel-amenities">
+                            <span><i class="fa-solid fa-kitchen-set"></i> Cozinha Completa</span>
+                            <span><i class="fa-solid fa-paw"></i> Pet Friendly</span>
+                            <span><i class="fa-solid fa-shop"></i> Colado no Old Town</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Expensive / Convenient Hotels (2 opções) -->
+            <div class="hotel-section-title space-above">
+                <span class="hotel-category-badge luxury-badge"><i class="fa-solid fa-gem"></i> Premium & Conveniência Máxima</span>
+                <h3>Experiências Exclusivas e Conforto Inigualável</h3>
+            </div>
+
+            <div class="hotels-grid luxury-grid">
+                <!-- Hotel Luxury 1 -->
+                <div class="hotel-card luxury">
+                    <div class="hotel-header">
+                        <span class="hotel-price">$850 - $1,200 <small>/ noite</small></span>
+                        <h4>Four Seasons Resort Orlando</h4>
+                    </div>
+                    <div class="hotel-body">
+                        <p class="hotel-location"><i class="fa-solid fa-location-dot"></i> Dentro do Golden Oak (Disney)</p>
+                        <p class="hotel-desc">Localizado dentro da propriedade residencial de luxo da Disney. É o único resort 5 diamantes da AAA em Orlando. Conta com um parque aquático privativo fantástico, campo de golfe championship e serviço impecável de alto luxo.</p>
+                        <div class="hotel-amenities">
+                            <span><i class="fa-solid fa-water-ladder"></i> Lazy River Privado</span>
+                            <span><i class="fa-solid fa-spa"></i> Spa & Massagens</span>
+                            <span><i class="fa-solid fa-bolt-lightning"></i> Benefícios Disney</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel Luxury 2 -->
+                <div class="hotel-card luxury">
+                    <div class="hotel-header">
+                        <span class="hotel-price">$450 - $700 <small>/ noite</small></span>
+                        <h4>Hard Rock Hotel at Universal</h4>
+                    </div>
+                    <div class="hotel-body">
+                        <p class="hotel-location"><i class="fa-solid fa-location-dot"></i> Dentro da Universal Studios</p>
+                        <p class="hotel-desc">Oferece um dos melhores custo-benefícios ocultos: os hóspedes ganham o <strong>Universal Express Unlimited Pass</strong> gratuitamente (fura-filas ilimitado que custaria mais de $150 por pessoa ao dia), além de poder caminhar a pé até os parques.</p>
+                        <div class="hotel-amenities">
+                            <span><i class="fa-solid fa-ticket-simple"></i> Express Pass Grátis</span>
+                            <span><i class="fa-solid fa-person-walking"></i> Acesso a Pé</span>
+                            <span><i class="fa-solid fa-hourglass-start"></i> Entrada Antecipada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. 5 Main attractions -->
+        <section id="attractions" class="section-container">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-ticket"></i></div>
+                <div>
+                    <h2 class="section-title">5 Atrações Principais</h2>
+                    <p class="section-subtitle">Pontos turísticos e parques obrigatórios que definem a viagem</p>
+                </div>
+            </div>
+
+            <div class="attractions-list">
+                <!-- Attraction 1 -->
+                <div class="attraction-row">
+                    <div class="attraction-num">01</div>
+                    <div class="attraction-info">
+                        <h3>Magic Kingdom Park (Walt Disney World)</h3>
+                        <p>O coração emocional de Orlando. Lar do famoso Castelo da Cinderela, das atrações clássicas como o <em>Pirates of the Caribbean</em> e a moderna montanha-russa do Tron. Essencial para vivenciar a clássica magia da Disney.</p>
+                    </div>
+                    <div class="attraction-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Disney Clássico</div>
+                </div>
+
+                <!-- Attraction 2 -->
+                <div class="attraction-row">
+                    <div class="attraction-num">02</div>
+                    <div class="attraction-info">
+                        <h3>Universal's Islands of Adventure</h3>
+                        <p>Considerado um dos melhores parques temáticos do planeta pela qualidade e imersão das atrações. Possui montanhas-russas radicais (VelociCoaster, Hulk) e a área hiper-imersiva do vilarejo de Hogsmeade do Harry Potter.</p>
+                    </div>
+                    <div class="attraction-tag"><i class="fa-solid fa-bolt"></i> Aventura Radical</div>
+                </div>
+
+                <!-- Attraction 3 -->
+                <div class="attraction-row">
+                    <div class="attraction-num">03</div>
+                    <div class="attraction-info">
+                        <h3>Epcot (Walt Disney World)</h3>
+                        <p>Parque temático voltado para o futuro, exploração espacial, sustentabilidade e cultura global. A atração <em>Guardians of the Galaxy: Cosmic Rewind</em> é revolucionária. A culinária dos países é imperdível.</p>
+                    </div>
+                    <div class="attraction-tag"><i class="fa-solid fa-globe"></i> Tecnologia & Culturas</div>
+                </div>
+
+                <!-- Attraction 4 -->
+                <div class="attraction-row">
+                    <div class="attraction-num">04</div>
+                    <div class="attraction-info">
+                        <h3>Disney Springs</h3>
+                        <p>Um centro comercial ao ar livre repleto de entretenimento de alta qualidade, lojas oficiais da Disney e da Lego, restaurantes premiados por chefs mundialmente famosos e música ao vivo pelos calçadões à beira do lago.</p>
+                    </div>
+                    <div class="attraction-tag"><i class="fa-solid fa-bag-shopping"></i> Lazer & Compras</div>
+                </div>
+
+                <!-- Attraction 5 -->
+                <div class="attraction-num">05</div>
+                <div class="attraction-info">
+                    <h3>Disney's Animal Kingdom</h3>
+                    <p>Celebrando a preservação animal e a natureza. A joia da coroa é o simulador de voo 3D de Avatar na espetacular área temática de Pandora, além do incrível safári real de animais na savana africana recriada.</p>
+                </div>
+                <div class="attraction-tag"><i class="fa-solid fa-leaf"></i> Natureza & Avatar</div>
+            </div>
+        </section>
+
+        <!-- 7. 5 Recommended restaurants -->
+        <section id="restaurants" class="section-container">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div>
+                    <h2 class="section-title">5 Restaurantes Recomendados</h2>
+                    <p class="section-subtitle">Uma seleção requintada e divertida para recarregar as energias com estilo</p>
+                </div>
+            </div>
+
+            <div class="restaurants-grid">
+                <!-- Restaurant 1 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-badge">Disney Springs</div>
+                    <div class="restaurant-card-content">
+                        <h3>The Boathouse</h3>
+                        <p class="restaurant-type"><i class="fa-solid fa-fish"></i> Frutos do Mar & Carnes Nobres</p>
+                        <p>À beira-mar em Disney Springs, famoso pelos carros anfíbios vintage que navegam na água e por frutos do mar incrivelmente frescos. Ambiente elegante, sofisticado e vibrante.</p>
+                        <p class="restaurant-cost">Gasto Médio: $35 - $60 / pess.</p>
+                    </div>
+                </div>
+
+                <!-- Restaurant 2 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-badge">Universal CityWalk</div>
+                    <div class="restaurant-card-content">
+                        <h3>Toothsome Chocolate Emporium</h3>
+                        <p class="restaurant-type"><i class="fa-solid fa-cookie-bite"></i> Americano Steampunk & Sobremesas</p>
+                        <p>Com arquitetura steampunk impressionante com chaminés industriais. Os milkshakes monumentais cobertos por fatias inteiras de bolo são o grande destaque mundial deste restaurante temático.</p>
+                        <p class="restaurant-cost">Gasto Médio: $25 - $45 / pess.</p>
+                    </div>
+                </div>
+
+                <!-- Restaurant 3 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-badge">Epcot</div>
+                    <div class="restaurant-card-content">
+                        <h3>Space 220 Restaurant</h3>
+                        <p class="restaurant-type"><i class="fa-solid fa-user-astronaut"></i> Experiência Futurista Espacial</p>
+                        <p>Você é levado em um elevador espacial simulado a 220 milhas de altura da Terra. Jante olhando por janelas panorâmicas gigantescas mostrando astronautas, a Terra e naves espaciais.</p>
+                        <p class="restaurant-cost">Gasto Médio: $55 - $80 / pess. (Menu Fixo)</p>
+                    </div>
+                </div>
+
+                <!-- Restaurant 4 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-badge">International Drive</div>
+                    <div class="restaurant-card-content">
+                        <h3>Texas de Brazil</h3>
+                        <p class="restaurant-type"><i class="fa-solid fa-fire"></i> Churrascaria Fina (Rodízio)</p>
+                        <p>O melhor rodízio brasileiro de luxo em Orlando. Perfeito para quando bater aquela saudade de casa. O buffet de saladas é monumental e o serviço de cortes nobres na brasa é impecável.</p>
+                        <p class="restaurant-cost">Gasto Médio: $55 - $65 / pess.</p>
+                    </div>
+                </div>
+
+                <!-- Restaurant 5 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-badge">Várias Localidades</div>
+                    <div class="restaurant-card-content">
+                        <h3>Shake Shack</h3>
+                        <p class="restaurant-type"><i class="fa-solid fa-burger"></i> Fast Casual / Hambúrguer Artesanal</p>
+                        <p>Hambúrgueres com blend Angus de alta qualidade, batatas fritas onduladas crocantes com queijo e milkshakes deliciosos. Rápido, econômico e infinitamente superior às redes tradicionais.</p>
+                        <p class="restaurant-cost">Gasto Médio: $12 - $18 / pess.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Simple projection of expenses -->
+        <section id="expenses" class="section-container">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                <div>
+                    <h2 class="section-title">Projeção Simples de Gastos (USD)</h2>
+                    <p class="section-subtitle">Estimativas financeiras realistas para planejar seu orçamento para 2 adultos</p>
+                </div>
+            </div>
+
+            <div class="expenses-wrapper">
+                <div class="expenses-visual">
+                    <div class="budget-glow"></div>
+                    <div class="total-badge">
+                        <span class="total-title">Investimento Estimado (2 Adultos)</span>
+                        <span class="total-value">$4,800 <small>USD</small></span>
+                        <span class="total-breakdown">Cerca de $2,400 por pessoa</span>
+                    </div>
+
+                    <div class="bar-chart-container">
+                        <!-- Item 1 -->
+                        <div class="bar-item">
+                            <div class="bar-info">
+                                <span><i class="fa-solid fa-plane"></i> Passagens Aéreas (GRU ➔ MCO)</span>
+                                <strong>$1,600</strong>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill fill-flights" style="width: 33.3%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="bar-item">
+                            <div class="bar-info">
+                                <span><i class="fa-solid fa-hotel"></i> Hospedagem (5 noites - Custo-Benefício)</span>
+                                <strong>$600</strong>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill fill-hotel" style="width: 12.5%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="bar-item">
+                            <div class="bar-info">
+                                <span><i class="fa-solid fa-ticket"></i> Ingressos de Parques (3 dias / 2 pes.)</span>
+                                <strong>$900</strong>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill fill-tickets" style="width: 18.7%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="bar-item">
+                            <div class="bar-info">
+                                <span><i class="fa-solid fa-utensils"></i> Alimentação Completa (5 dias)</span>
+                                <strong>$750</strong>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill fill-food" style="width: 15.6%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="bar-item">
+                            <div class="bar-info">
+                                <span><i class="fa-solid fa-car"></i> Carro, Seguros, Gasolina & Vagas</span>
+                                <strong>$450</strong>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill fill-car" style="width: 9.4%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 6 -->
+                        <div class="bar-item">
+                            <div class="bar-info">
+                                <span><i class="fa-solid fa-gift"></i> Compras, Lembranças e Variados</span>
+                                <strong>$500</strong>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill fill-shopping" style="width: 10.5%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expenses-notes card">
+                    <h3><i class="fa-solid fa-triangle-exclamation"></i> Premissas do Orçamento</h3>
+                    <p>O planejamento financeiro acima foi estruturado considerando as seguintes bases de cálculo para o período de viagem:</p>
+                    <ul class="expenses-bullet-list">
+                        <li><strong>Passagem Aérea:</strong> Média tarifária de classe econômica promocional saindo de Guarulhos para voos com conexões rápidas ou diretos em baixa temporada.</li>
+                        <li><strong>Hospedagem:</strong> Quarto duplo padrão em hotéis de categoria Custo-Benefício (ex. Fairfield Inn ou Rosen Inn) com taxas turísticas da Flórida inclusas.</li>
+                        <li><strong>Parques:</strong> Tickets oficiais adquiridos de forma combinada (2 dias de Disney + 1 dia de Universal Studios).</li>
+                        <li><strong>Transporte:</strong> Locação de veículo compacto com seguros básicos inclusos + taxa de estacionamento dos parques (cerca de $30/dia) e gasolina.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Final recommendation -->
+        <section id="recommendation" class="section-container last-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div>
+                    <h2 class="section-title">Recomendação Final</h2>
+                    <p class="section-subtitle">O veredito de nossos especialistas para maximizar a sua viagem</p>
+                </div>
+            </div>
+
+            <div class="recommendation-box">
+                <div class="rec-icon"><i class="fa-solid fa-star"></i></div>
+                <h3>Dicas de Ouro para Sucesso Absoluto</h3>
+                <p class="rec-intro">Fazer uma viagem de 5 dias exige <strong>foco total na otimização do tempo</strong>. Siga este plano de ação estratégico para evitar contratempos:</p>
+                
+                <div class="rec-grid">
+                    <div class="rec-card">
+                        <div class="rec-card-icon"><i class="fa-solid fa-ticket-simple"></i></div>
+                        <h4>1. Compre tudo antes</h4>
+                        <p>Nunca deixe para comprar ingressos ou alugar carro em Orlando. A compra antecipada online garante melhores preços, evita filas imensas na bilheteria física e permite agendar reservas essenciais.</p>
+                    </div>
+
+                    <div class="rec-card">
+                        <div class="rec-card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <h4>2. Apps São Vitais</h4>
+                        <p>Baixe os aplicativos <em>My Disney Experience</em> e <em>Universal Orlando</em> ainda no Brasil. Cadastre seus cartões, faça o upload dos ingressos e use o pedido móvel de refeições (Mobile Dining) para não perder tempo nas filas dos lanches.</p>
+                    </div>
+
+                    <div class="rec-card">
+                        <div class="rec-card-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                        <h4>3. Fuja da Alta Estação</h4>
+                        <p>Se puder escolher, viaje entre <strong>setembro/outubro</strong> ou <strong>fevereiro/março</strong>. Nesses meses, as filas são muito menores, o clima é agradável (fugindo do calor sufocante e das tempestades diárias de julho) e as diárias são bem baratas.</p>
+                    </div>
+
+                    <div class="rec-card">
+                        <div class="rec-card-icon"><i class="fa-solid fa-car-side"></i></div>
+                        <h4>4. Mobilidade Inteligente</h4>
+                        <p>O carro em Orlando é indispensável pelo modelo urbano espalhado da cidade. Escolha um carro econômico ou compacto para economizar na diária e combustível, pois as distâncias de deslocamento são amplas.</p>
+                    </div>
+                </div>
+
+                <div class="rec-summary-box">
+                    <p><strong>Veredito Antigravity:</strong> Este roteiro de 5 dias equilibra com maestria a emoção extrema dos melhores parques temáticos com a conveniência de excelentes hotéis de excelente custo-benefício. Perfeitamente otimizado para um casal saindo de São Paulo viver a magia de Orlando com conforto e previsibilidade financeira.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <i class="fa-solid fa-plane-departure logo-icon"></i> Roteiro SP ➔ MCO
+            </div>
+            <p>Criado com dedicação e elegância. Um guia premium para sua viagem dos sonhos.</p>
+            <p class="copyright">&copy; 2026 Roteiro Orlando Premium. Todos os direitos reservados de acordo com as diretrizes.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation Active Link Highlighter Script -->
+    <script>
+        // Smooth scrolling active link update
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 120)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Navbar shrink effect on scroll
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-shrunk');
+            } else {
+                navbar.classList.remove('navbar-shrunk');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if(navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu on link click (mobile)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

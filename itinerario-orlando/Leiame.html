@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação & Leiame | Itinerário SP ➔ MCO</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Identity Visual Tokens --- */
+        :root {
+            --bg-main: hsl(224, 45%, 8%);
+            --bg-surface: hsl(224, 40%, 12%);
+            --bg-surface-elevated: hsl(224, 35%, 16%);
+            
+            --accent-cyan: hsl(186, 100%, 48%);
+            --accent-cyan-rgb: 0, 242, 254;
+            --accent-purple: hsl(265, 95%, 68%);
+            --accent-purple-rgb: 157, 78, 255;
+            --accent-gold: hsl(42, 100%, 55%);
+            --accent-gold-rgb: 255, 178, 26;
+            
+            --text-primary: hsl(220, 40%, 98%);
+            --text-secondary: hsl(220, 20%, 75%);
+            --text-muted: hsl(220, 15%, 55%);
+            
+            --glass-bg: rgba(16, 22, 37, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-quick: all 0.2s ease;
+        }
+
+        /* --- Global Reset & Background --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-secondary);
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- Ambient Glows --- */
+        .glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            top: -10%;
+            right: -10%;
+            width: 45vw;
+            height: 45vh;
+            background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+        }
+
+        .glow-2 {
+            bottom: -10%;
+            left: -10%;
+            width: 45vw;
+            height: 45vh;
+            background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+        }
+
+        /* --- Layout Container --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* --- Header Section --- */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .doc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* --- Cards & Sections --- */
+        section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        section:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.75rem;
+        }
+
+        .section-title i {
+            color: var(--accent-cyan);
+        }
+
+        /* --- Terminal / Code Block --- */
+        .terminal {
+            background: hsl(224, 45%, 5%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.25rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #d1d5db;
+            margin: 1rem 0 1.5rem 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .terminal::before {
+            content: '🌐 Terminal';
+            position: absolute;
+            top: 4px;
+            right: 12px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .terminal-line {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .terminal-prompt {
+            color: var(--accent-cyan);
+            user-select: none;
+        }
+
+        .terminal-comment {
+            color: var(--text-muted);
+        }
+
+        /* --- Link styling --- */
+        .file-link {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .file-link:hover {
+            color: var(--accent-purple);
+        }
+
+        /* --- Lists & Bullets --- */
+        ul {
+            list-style: none;
+            padding-left: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        li::before {
+            content: '➔';
+            position: absolute;
+            left: 0;
+            color: var(--accent-purple);
+            font-weight: bold;
+        }
+
+        .grid-tech {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .tech-box i {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-box h4 {
+            font-family: var(--font-heading);
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(var(--accent-cyan-rgb), 0.1), rgba(var(--accent-purple-rgb), 0.1));
+            border: 1px solid var(--accent-cyan);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            margin-top: 2rem;
+            box-shadow: 0 0 15px rgba(var(--accent-cyan-rgb), 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-color: transparent;
+            box-shadow: 0 0 25px rgba(var(--accent-cyan-rgb), 0.25);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem 1rem;
+            }
+            section {
+                padding: 1.75rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <div class="container">
+        <header>
+            <div class="doc-badge"><i class="fa-solid fa-file-code"></i> Documentação Técnica</div>
+            <h1>LEIAME.html</h1>
+            <p class="subtitle">Guia de inicialização, arquitetura e resumo do projeto Itinerário SP ➔ MCO</p>
+        </header>
+
+        <main>
+            <!-- 1. Como Iniciar o Servidor Local -->
+            <section>
+                <h2 class="section-title"><i class="fa-solid fa-server"></i> Como Iniciar o Servidor Local</h2>
+                <p>O projeto consiste em uma página estática rica, construída com HTML5 e Vanilla CSS. Por questões de roteamento interno em navegadores e segurança de carregamento de scripts locais, recomendamos rodar um servidor HTTP local para ter a melhor experiência.</p>
+                
+                <p style="margin-top: 1rem;">Abra seu terminal (PowerShell ou CMD) e digite as seguintes instruções:</p>
+                
+                <div class="terminal">
+                    <span class="terminal-line"><span class="terminal-prompt">PS C:\></span> cd "R:\Web\OpenClaude\Projetos\itinerario-orlando"</span>
+                    <span class="terminal-line"><span class="terminal-comment"># Inicie o servidor HTTP nativo do Python na porta 8000</span></span>
+                    <span class="terminal-line"><span class="terminal-prompt">PS R:\...\itinerario-orlando></span> python -m http.server 8000</span>
+                    <span class="terminal-line"><span class="terminal-comment">Serving HTTP on 0.0.0.0 port 8000 (http://[::]:8000/) ...</span></span>
+                </div>
+
+                <p>Com o servidor ativo, abra seu navegador de preferência e acesse o endereço:</p>
+                <p style="margin-top: 0.5rem; font-size: 1.1rem; font-weight: bold; text-align: center;">
+                    <a href="http://localhost:8000" target="_blank" class="file-link">http://localhost:8000</a>
+                </p>
+            </section>
+
+            <!-- 2. Estrutura dos Arquivos Criados -->
+            <section>
+                <h2 class="section-title"><i class="fa-solid fa-folder-tree"></i> Estrutura do Projeto</h2>
+                <p>Todos os arquivos foram criados na pasta de desenvolvimento do projeto e estão organizados da seguinte forma:</p>
+                
+                <div class="terminal" style="font-family: monospace;">
+                    📂 itinerario-orlando/<br>
+                    ├── 📄 <a href="index.html" class="file-link">index.html</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-comment">(Estrutura do roteiro e dados da viagem)</span><br>
+                    ├── 📄 <a href="style.css" class="file-link">style.css</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-comment">(Estilos premium, variáveis e animações)</span><br>
+                    └── 📄 <a href="Leiame.html" class="file-link">Leiame.html</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="terminal-comment">(Esta documentação de leitura)</span>
+                </div>
+            </section>
+
+            <!-- 3. Detalhes do Design & Tecnologia -->
+            <section>
+                <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Identidade Visual & Design Premium</h2>
+                <p>O projeto foi planejado seguindo conceitos atuais de interfaces de alta qualidade, fugindo de cores padrão e focando na estética de aplicativos e sites premium (de luxo acessível):</p>
+                
+                <div class="grid-tech">
+                    <div class="tech-box">
+                        <i class="fa-solid fa-droplet"></i>
+                        <h4>Paleta Harmônica HSL</h4>
+                        <p>Fundo escuro profundo com variações de opacidade e cores neon dinâmicas (ciano, roxo e dourado).</p>
+                    </div>
+
+                    <div class="tech-box">
+                        <i class="fa-solid fa-box-open"></i>
+                        <h4>Glassmorphism</h4>
+                        <p>Cards com efeito de vidro jateado, desfoque de fundo (backdrop-filter) e bordas finas translúcidas.</p>
+                    </div>
+
+                    <div class="tech-box">
+                        <i class="fa-solid fa-font"></i>
+                        <h4>Tipografia Moderna</h4>
+                        <p>Utilização das fontes premium <strong>Outfit</strong> (títulos imponentes) e <strong>Inter</strong> (legibilidade perfeita).</p>
+                    </div>
+
+                    <div class="tech-box">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <h4>Totalmente Responsivo</h4>
+                        <p>Layout projetado usando CSS Flexbox e CSS Grid, adaptável para celulares, tablets e computadores.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Resumo das Seções do Roteiro -->
+            <section>
+                <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Resumo das Seções Criadas</h2>
+                <p>O arquivo principal de itinerário inclui exatamente as nove seções solicitadas de maneira organizada:</p>
+                <ul>
+                    <li><strong>Resumo da Viagem:</strong> Dados chave da jornada (5 dias, 2 adultos, rota de São Paulo a Orlando, base financeira em dólares).</li>
+                    <li><strong>Roteiro Dia a Dia:</strong> Roteiro altamente estratégico focando em Magic Kingdom, Islands of Adventure, Epcot e Animal Kingdom + Disney Springs no primeiro dia.</li>
+                    <li><strong>Melhores Regiões para Ficar:</strong> Prós de ficar em International Drive, Lake Buena Vista ou Kissimmee.</li>
+                    <li><strong>Hospedagens Custo-Benefício:</strong> Rosen Inn at Pointe Orlando, Fairfield Inn near Universal e Celebration Suites.</li>
+                    <li><strong>Hospedagens de Conveniência/Luxo:</strong> Four Seasons Resort Orlando e Hard Rock Hotel (com Universal Express Pass ilimitado incluso).</li>
+                    <li><strong>5 Atrações Principais:</strong> Destaques de entretenimento e tecnologia imperdíveis nos parques e complexos de lazer.</li>
+                    <li><strong>5 Restaurantes Recomendados:</strong> Dicas deliciosas e temáticas desde menus espaciais refinados (Space 220) até lanches de excelente custo (Shake Shack).</li>
+                    <li><strong>Projeção de Gastos:</strong> Gráfico financeiro dinâmico somando cerca de <strong>$4,800 USD</strong> para o casal.</li>
+                    <li><strong>Recomendação Final:</strong> Veredito e dicas práticas de ouro para economia de tempo e escolha de melhor temporada.</li>
+                </ul>
+            </section>
+
+            <div style="text-align: center;">
+                <a href="index.html" class="back-btn"><i class="fa-solid fa-chevron-left"></i> Acessar Itinerário Principal</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Roteiro Orlando Premium. Documentação oficial do projeto.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
