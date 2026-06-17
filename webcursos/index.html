@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHIA Play - Plataforma de Cursos Online de IA</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS Local -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#" class="nav-logo" id="nav-brand-logo">
+                    <i class="fa-solid fa-brain nav-logo-icon"></i>
+                    <span>DH<span class="highlight">IA</span> Play</span>
+                </a>
+            </div>
+            <div class="nav-toggle" id="mobile-menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="active-menu"><a href="#" id="menu-home-btn"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li id="menu-dashboard-item" style="display: none;"><a href="#" id="menu-dashboard-btn"><i class="fa-solid fa-graduation-cap"></i> Meu Painel</a></li>
+                <li><a href="https://dhweb.blogspot.com/" target="_blank"><i class="fa-solid fa-book-open"></i> Visitar Blog</a></li>
+                
+                <!-- Autenticação Dinâmica no Topo -->
+                <li id="nav-auth-item">
+                    <button class="btn-login" id="nav-login-btn"><i class="fa-solid fa-user"></i> Entrar</button>
+                </li>
+                <li id="nav-user-item" style="display: none;">
+                    <div class="user-profile-nav" id="nav-profile-btn">
+                        <img src="images/profile_avatar.png" alt="Avatar" class="user-avatar-small">
+                        <span id="nav-username-span">Estudante</span>
+                        <i class="fa-solid fa-caret-down" style="font-size: 10px; opacity: 0.8;"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ROTA 1: HOME CATALOG (PÁGINA INICIAL) -->
+    <main class="spa-route active-route" id="route-home">
+        <!-- Hero Section -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fa-solid fa-tv"></i> streaming de aprendizado em IA</div>
+                <h1 class="hero-title">A Netflix do Aprendizado de Inteligência Artificial</h1>
+                <p class="hero-subtitle">Assista a aulas curtas, práticas e focadas na criação de soluções com IA. Comece agora mesmo com trilhas gratuitas ou assine para liberar o conteúdo avançado.</p>
+                <div class="hero-ctas">
+                    <button class="btn btn-primary" id="hero-start-btn"><i class="fa-solid fa-circle-play"></i> Começar a Assistir</button>
+                    <a href="https://dhweb.blogspot.com/" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-newspaper"></i> Ler Novidades do Blog</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Container do Catálogo Netflix-like -->
+        <section class="catalog-container">
+            
+            <!-- Fileira 1: Cursos Gratuitos -->
+            <div class="catalog-row">
+                <h2 class="catalog-row-title">
+                    <i class="fa-solid fa-bolt"></i> Trilhas Gratuitas <span class="red-badge">Acesso Livre</span>
+                </h2>
+                <div class="courses-grid" id="free-courses-grid">
+                    <!-- Cards gerados dinamicamente por JS -->
+                </div>
+            </div>
+
+            <!-- Fileira 2: Cursos Premium (Trancados) -->
+            <div class="catalog-row">
+                <h2 class="catalog-row-title">
+                    <i class="fa-solid fa-lock"></i> Trilhas Premium <span class="red-badge" style="background-color: var(--accent-purple);">Exclusivo</span>
+                </h2>
+                <div class="courses-grid" id="premium-courses-grid">
+                    <!-- Cards gerados dinamicamente por JS -->
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ROTA 2: DASHBOARD DO ESTUDANTE (MATRÍCULAS E PROGRESSO) -->
+    <main class="spa-route" id="route-dashboard">
+        <div class="dashboard-wrapper">
+            <!-- Boas vindas -->
+            <div class="dashboard-welcome-banner">
+                <div class="dashboard-welcome-info">
+                    <h2 id="dash-greeting-title">Olá, Aluno!</h2>
+                    <p>Bem-vindo de volta à sua área de estudos. Seu progresso é salvo automaticamente.</p>
+                </div>
+                <button class="btn-logout" id="dash-logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Sair da Conta</button>
+            </div>
+
+            <!-- Grid de Estatísticas -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                    <div class="stat-data">
+                        <span class="stat-value" id="stat-courses-count">0</span>
+                        <span class="stat-name">Cursos Matriculados</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="stat-data">
+                        <span class="stat-value" id="stat-lessons-count">0</span>
+                        <span class="stat-name">Aulas Concluídas</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div class="stat-data">
+                        <span class="stat-value" id="stat-progress-percent">0%</span>
+                        <span class="stat-name">Progresso Médio</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listagem de Cursos Matriculados -->
+            <div class="enroll-courses-section">
+                <h3><i class="fa-solid fa-circle-play"></i> Continuar Assistindo</h3>
+                <div class="courses-grid" id="enrolled-courses-grid">
+                    <!-- Cards dinâmicos com barras de progresso reais -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ROTA 3: SALA DE AULA (CLASSROOM) -->
+    <main class="spa-route" id="route-classroom">
+        <div class="classroom-container">
+            
+            <!-- Coluna Esquerda: Vídeo Player + Abas -->
+            <section class="classroom-player-area">
+                
+                <!-- Player de Vídeo Customizado Simulador -->
+                <div class="video-player-simulator" id="video-simulator">
+                    <div class="video-media-placeholder">
+                        <div class="video-placeholder-banner" id="video-banner">
+                            <i class="fa-solid fa-circle-play" id="video-banner-play-icon" style="cursor: pointer;"></i>
+                            <h4 id="video-banner-title">Aula 1: Introdução ao Curso</h4>
+                            <p>Clique no botão para iniciar a reprodução</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Barra de Controle Translúcida -->
+                    <div class="video-controls-bar">
+                        <!-- Barra de Progresso -->
+                        <div class="video-timeline-slider" id="video-timeline">
+                            <div class="video-timeline-fill" id="video-timeline-fill" style="width: 0%;"></div>
+                            <div class="video-timeline-knob" id="video-timeline-knob" style="left: 0%;"></div>
+                        </div>
+                        
+                        <!-- Layout dos Botões -->
+                        <div class="video-buttons-layout">
+                            <div class="video-controls-left">
+                                <button class="video-control-btn play-toggle-btn" id="video-play-btn"><i class="fa-solid fa-play"></i></button>
+                                <button class="video-control-btn" id="video-mute-btn"><i class="fa-solid fa-volume-high"></i></button>
+                                <span class="video-time-indicator" id="video-time">0:00 / 0:00</span>
+                            </div>
+                            <div class="video-controls-right">
+                                <button class="video-control-btn" id="video-speed-btn" style="font-size: 13px; font-weight: 700;">1.0x</button>
+                                <button class="video-control-btn" id="video-fullscreen-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalhes e Abas da Aula -->
+                <div class="classroom-lesson-details">
+                    <span class="lesson-category-tag" id="lesson-tag">Categoria</span>
+                    <h2 class="lesson-main-title" id="lesson-title">Título da Aula</h2>
+                    <div class="lesson-course-origin"><i class="fa-solid fa-graduation-cap"></i> Trilha: <span id="lesson-course-title">Curso Exemplo</span></div>
+                    
+                    <!-- Abas -->
+                    <div class="lesson-tabs-header">
+                        <button class="lesson-tab-btn active-tab" data-tab="tab-desc">Descrição</button>
+                        <button class="lesson-tab-btn" data-tab="tab-comments">Discussão (<span id="lesson-comments-count">0</span>)</button>
+                    </div>
+
+                    <!-- Conteúdo das Abas -->
+                    <div class="lesson-tab-content">
+                        <!-- Aba Descrição -->
+                        <div class="lesson-tab-pane active-pane" id="tab-desc">
+                            <!-- Descrição gerada dinamicamente -->
+                        </div>
+                        <!-- Aba Discussão -->
+                        <div class="lesson-tab-pane" id="tab-comments">
+                            <div class="classroom-comments-list" id="classroom-comments-list">
+                                <!-- Comentários dinâmicos da aula -->
+                            </div>
+                            <!-- Form de Envio -->
+                            <form class="comment-form" id="classroom-comment-form">
+                                <textarea class="comment-textarea" id="classroom-comment-textarea" placeholder="Deixe sua dúvida ou comentário sobre esta aula..." required></textarea>
+                                <button type="submit" class="btn-comment-submit">Publicar Comentário</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Coluna Direita: Grade de Aulas (Playlist do Curso) -->
+            <aside class="classroom-curriculum-sidebar">
+                <h3 class="curriculum-sidebar-title"><i class="fa-solid fa-list-ul"></i> Aulas da Trilha</h3>
+                <ul class="lessons-playlist" id="lessons-playlist">
+                    <!-- Playlist gerada dinamicamente via JS -->
+                </ul>
+            </aside>
+            
+        </div>
+    </main>
+
+    <!-- MODAL DE AUTENTICAÇÃO (LOGIN / REGISTRO) -->
+    <div class="auth-modal" id="auth-modal">
+        <!-- Container de Login -->
+        <div class="auth-container" id="auth-login-container">
+            <div class="auth-header">
+                <span class="auth-close" id="login-close-btn"><i class="fa-solid fa-xmark"></i></span>
+                <h2 class="auth-title">Entrar na Conta</h2>
+                <p class="auth-subtitle">Faça login para assistir às trilhas premium de IA.</p>
+            </div>
+            <form class="auth-form" id="login-form">
+                <div class="form-group">
+                    <label class="form-label" for="login-email">E-mail</label>
+                    <input type="email" class="form-input" id="login-email" placeholder="nome@exemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="login-password">Senha</label>
+                    <input type="password" class="form-input" id="login-password" placeholder="Sua senha" required>
+                </div>
+                <button type="submit" class="auth-btn-submit">Entrar na Plataforma</button>
+                <p class="auth-switch-prompt">Não tem conta? <span class="auth-switch-link" id="switch-to-register">Cadastre-se</span></p>
+            </form>
+        </div>
+
+        <!-- Container de Cadastro -->
+        <div class="auth-container" id="auth-register-container" style="display: none;">
+            <div class="auth-header">
+                <span class="auth-close" id="register-close-btn"><i class="fa-solid fa-xmark"></i></span>
+                <h2 class="auth-title">Criar nova Conta</h2>
+                <p class="auth-subtitle">Cadastre-se para acompanhar seu progresso e assistir aos cursos.</p>
+            </div>
+            <form class="auth-form" id="register-form">
+                <div class="form-group">
+                    <label class="form-label" for="reg-name">Seu Nome</label>
+                    <input type="text" class="form-input" id="reg-name" placeholder="Ex: Diego Vilela" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="reg-email">E-mail</label>
+                    <input type="email" class="form-input" id="reg-email" placeholder="nome@exemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="reg-password">Senha</label>
+                    <input type="password" class="form-input" id="reg-password" placeholder="Crie uma senha segura" required>
+                </div>
+                <button type="submit" class="auth-btn-submit">Criar minha Conta</button>
+                <p class="auth-switch-prompt">Já possui uma conta? <span class="auth-switch-link" id="switch-to-login">Faça Login</span></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- RODAPÉ PREMIUM -->
+    <footer>
+        <div class="footer-logo">
+            <i class="fa-solid fa-brain nav-logo-icon"></i>
+            <span>DH<span class="highlight">IA</span> Play</span>
+        </div>
+        <p class="footer-desc">Plataforma educacional avançada simuladora de portfólio. Projetado no estilo streaming de cursos de inteligência artificial com persistência em localStorage.</p>
+        <div class="footer-socials">
+            <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="footer-copy">
+            &copy; 2026 <strong>DHIA Play</strong>. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Scripts da Lógica e Banco de Dados Local -->
+    <script src="script.js"></script>
+</body>
+</html>

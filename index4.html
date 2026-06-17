@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>duvilela | Professional Portfolio</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-color: #f9fafb;
+            --surface: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --accent: #2563eb;
+            --accent-light: #eff6ff;
+            --font-family: 'Inter', sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.2s ease-in-out;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-top: 72px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Loading Bar */
+        .loading-bar {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        .loading-bar.loading { opacity: 1; width: 70%; }
+        .loading-bar.loaded { width: 100%; opacity: 0; }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            color: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .nav-status {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-family);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-color);
+        }
+
+        .nav-btn.active {
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-color);
+        }
+
+        /* Hub Container */
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .header-section {
+            margin-bottom: 4rem;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .header-section p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Cards Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .clean-card {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .clean-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-light);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .clean-card:hover .card-icon {
+            background: var(--accent);
+            color: var(--surface);
+        }
+
+        .clean-card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .clean-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .tags-container {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .clean-tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .card-arrow {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--text-secondary);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: var(--transition);
+        }
+
+        .clean-card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(0);
+            color: var(--accent);
+        }
+
+        /* Iframe View CSS */
+        #iframe-view {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: calc(100vh - 72px);
+            background: var(--bg-color);
+            display: none;
+            opacity: 0;
+            z-index: 10;
+            transition: opacity 0.3s ease;
+        }
+
+        #project-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #ffffff;
+        }
+
+        .fade-out {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+        
+        .fade-in {
+            opacity: 1 !important;
+        }
+        
+        #hub-view {
+            transition: opacity 0.3s ease;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-section h1 { font-size: 2rem; }
+            .nav-link span, .nav-btn span { display: none; }
+            .nav-status { display: none; }
+            .container { padding: 3rem 1.5rem; }
+        }
+
+        /* Theme Selector Modal (Light Theme customized) */
+        .theme-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .theme-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .theme-modal-content {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            max-width: 680px;
+            width: 90%;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            color: #1f2937;
+            text-align: left;
+        }
+        .theme-modal-overlay.active .theme-modal-content {
+            transform: translateY(0);
+        }
+        .theme-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding-bottom: 1rem;
+        }
+        .theme-modal-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #111827;
+        }
+        .theme-modal-close-btn {
+            background: transparent;
+            border: none;
+            color: #6b7280;
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .theme-modal-close-btn:hover {
+            color: #111827;
+        }
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+        .theme-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+        .theme-grid::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .theme-grid::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 999px;
+        }
+        .theme-option-card {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .theme-option-card:hover {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        .theme-option-card.current {
+            border-color: #2563eb;
+            background: rgba(37, 99, 235, 0.03);
+        }
+        .theme-preview-glow {
+            position: absolute;
+            top: 0; right: 0;
+            width: 60px; height: 60px;
+            filter: blur(25px);
+            opacity: 0.15;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .theme-option-card:hover .theme-preview-glow {
+            opacity: 0.3;
+        }
+        .theme-option-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.2rem;
+        }
+        .theme-option-card p {
+            font-size: 0.8rem;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+        .theme-badge {
+            align-self: flex-start;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.04);
+            color: #4b5563;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .theme-option-card.current .theme-badge {
+            background: rgba(37, 99, 235, 0.08);
+            color: #1d4ed8;
+            border-color: rgba(37, 99, 235, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Loading Indicator -->
+    <div class="loading-bar" id="loading-bar"></div>
+
+    <!-- Fixed Header / Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand" id="nav-brand">
+                <div class="brand-avatar">D</div>
+                <span>Duvilela</span>
+            </a>
+            
+            <div class="nav-status" id="nav-status">
+                <div class="status-dot"></div>
+                <span class="status-text">Visualizando</span>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-btn active" id="btn-home">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Projetos</span>
+                </button>
+                <button class="nav-btn" id="btn-theme-switcher" title="Trocar Tema">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Temas</span>
+                </button>
+                <!-- <a href="https://github.com/duvilela" target="_blank" class="nav-link">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- PORTFOLIO HUB -->
+    <main class="container" id="hub-view">
+        <div class="header-section">
+            <h1>Projetos & Portfólio</h1>
+            <p>Navegue por landing pages, projetos web e experimentos de interface desenvolvidos com foco em performance e design.</p>
+        </div>
+
+        <div class="cards">
+            <!-- Neymar Copa 2026 -->
+            <a href="neymarjr/index1.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-star"></i></div>
+                <h2>Neymar Copa 2026</h2>
+                <p>O maior artilheiro do Brasil em sua última chance de conquistar o hexa. Histórico, stats e expectativas.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">Neymar</span>
+                    <span class="clean-tag">Copa 2026</span>
+                </div>
+            </a>
+
+            <!-- Modelos Free para Codar -->
+            <a href="codar/index2.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+                <h2>Modelos Free para Codar</h2>
+                <p>Os melhores modelos open source e ferramentas gratuitas de IA para desenvolvimento de software.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">IA</span>
+                    <span class="clean-tag">Open Source</span>
+                </div>
+            </a>
+
+            <!-- Neymar Jr Copa 2026 v2 -->
+            <a href="neymarjr/index3.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                <h2>Neymar Jr | Copa 2026</h2>
+                <p>Versão alternativa da landing page do Neymar para a Copa do Mundo 2026 com design exclusivo.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">Neymar</span>
+                    <span class="clean-tag">Design v2</span>
+                </div>
+            </a>
+
+            <!-- Realme C61 -->
+            <a href="realmec61/realme-c61.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <h2>Realme C61</h2>
+                <p>Custo-benefício que impressiona: tela 6.78" 90Hz, bateria 5000mAh, câmera 50MP e carregamento 33W.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">Smartphone</span>
+                    <span class="clean-tag">Review</span>
+                </div>
+            </a>
+
+            <!-- Neymar Último Sonho -->
+            <a href="neymarjr/index4.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-futbol"></i></div>
+                <h2>Neymar | O Último Sonho</h2>
+                <p>A última dança: experiência, memória e esperança reunidas em busca do maior título com a amarelinha.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">Neymar</span>
+                    <span class="clean-tag">Design v3</span>
+                </div>
+            </a>
+
+            <!-- iPhone 17 -->
+            <a href="grokfast/index.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-brands fa-apple"></i></div>
+                <h2>iPhone 17 - Apple</h2>
+                <p>O mais poderoso iPhone já criado. Chip A19 Pro, câmera 48MP com IA, design em titânio aeroespacial e tela sem entalhe.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">Apple</span>
+                    <span class="clean-tag">Lançamento</span>
+                </div>
+            </a>
+
+            <!-- São Paulo -> Orlando -->
+            <a href="itinerario-orlando/index.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-plane"></i></div>
+                <h2>São Paulo ➔ Orlando</h2>
+                <p>Roteiro exclusivo de 5 dias: parques, hospedagem, gastronomia e dicas práticas para uma viagem inesquecível.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">Viagem</span>
+                    <span class="clean-tag">Roteiro</span>
+                </div>
+            </a>
+
+            <!-- DHIA Play -->
+            <a href="webcursos/index.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h2>DHIA Play</h2>
+                <p>A Netflix do aprendizado de Inteligência Artificial. Aulas curtas, práticas e focadas na criação de soluções com IA.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">IA</span>
+                    <span class="clean-tag">Cursos</span>
+                </div>
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Duvilela. Desenvolvido com foco em UI/UX.<!-- | <a href="https://github.com/duvilela" target="_blank">GitHub</a>--></p>
+        </footer>
+    </main>
+
+    <!-- SUB-PROJECT IFRAME (SPA CONTAINER) -->
+    <div id="iframe-view">
+        <iframe id="project-iframe" src="about:blank"></iframe>
+    </div>
+
+    <!-- Theme Selector Modal -->
+    <div id="theme-modal" class="theme-modal-overlay">
+        <div class="theme-modal-content">
+            <div class="theme-modal-header">
+                <h2>Selecione um Tema para o Hub</h2>
+                <button id="theme-modal-close" class="theme-modal-close-btn">&times;</button>
+            </div>
+            <div class="theme-grid">
+                <!-- Theme 1 (Modern Creative - now index.html) -->
+                <a href="index.html" class="theme-option-card" id="theme-card-1">
+                    <div class="theme-preview-glow" style="background: linear-gradient(135deg, #8b5cf6, #06b6d4);"></div>
+                    <h3>Modern Creative</h3>
+                    <p>Vidro fosco (glassmorphism) com tons roxo e ciano.</p>
+                    <span class="theme-badge">Futurista (Principal)</span>
+                </a>
+                <!-- Theme 2 (Original Hub - now index2.html) -->
+                <a href="index2.html" class="theme-option-card" id="theme-card-2">
+                    <div class="theme-preview-glow" style="background: linear-gradient(135deg, #22c55e, #06b6d4);"></div>
+                    <h3>Original Hub</h3>
+                    <p>Retro-Modern Dark com brilhos verde/ciano e emojis.</p>
+                    <span class="theme-badge">Original</span>
+                </a>
+                <!-- Theme 3 -->
+                <a href="index3.html" class="theme-option-card" id="theme-card-3">
+                    <div class="theme-preview-glow" style="background: linear-gradient(135deg, #3b82f6, #09090b);"></div>
+                    <h3>Cyberpunk AI</h3>
+                    <p>Tema de inteligência artificial com grade e neon azul.</p>
+                    <span class="theme-badge">Tecnológico</span>
+                </a>
+                <!-- Theme 4 -->
+                <a href="index4.html" class="theme-option-card current" id="theme-card-4">
+                    <div class="theme-preview-glow" style="background: linear-gradient(135deg, #2563eb, #eff6ff);"></div>
+                    <h3>Clean Light</h3>
+                    <p>Design corporativo, minimalista e profissional em modo claro.</p>
+                    <span class="theme-badge">Corporativo</span>
+                </a>
+                <!-- Theme 5 -->
+                <a href="index5.html" class="theme-option-card" id="theme-card-5">
+                    <div class="theme-preview-glow" style="background: linear-gradient(135deg, #6366f1, #0ea5e9);"></div>
+                    <h3>Premium Dark</h3>
+                    <p>Visual executivo em titânio e aço com acentos índigo.</p>
+                    <span class="theme-badge">Premium</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SPA logic -->
+    <script>
+        const hubView = document.getElementById('hub-view');
+        const iframeView = document.getElementById('iframe-view');
+        const iframeEl = document.getElementById('project-iframe');
+        const btnHome = document.getElementById('btn-home');
+        const navBrand = document.getElementById('nav-brand');
+        const navStatus = document.getElementById('nav-status');
+        const statusText = navStatus.querySelector('.status-text');
+        const loadingBar = document.getElementById('loading-bar');
+
+        // Initial state
+        history.replaceState({view: 'hub'}, '', window.location.pathname);
+
+        function openProject(url, title, pushState = true) {
+            loadingBar.className = 'loading-bar loading';
+            
+            iframeEl.src = url;
+            iframeView.style.display = 'block';
+            hubView.classList.add('fade-out');
+            
+            setTimeout(() => {
+                hubView.style.display = 'none';
+                iframeView.classList.add('fade-in');
+                
+                statusText.textContent = title;
+                navStatus.style.display = 'flex';
+                
+                btnHome.classList.remove('active');
+                
+                if (pushState) {
+                    const hash = '#' + encodeURIComponent(title.toLowerCase().trim().replace(/\s+/g, '-'));
+                    history.pushState({view: 'project', url: url, title: title}, '', hash);
+                }
+            }, 300);
+        }
+
+        function showHome(e, pushState = true) {
+            if (e) e.preventDefault();
+            
+            if (iframeView.style.display === 'none' || !iframeView.style.display) return;
+            
+            loadingBar.className = 'loading-bar';
+            iframeView.classList.remove('fade-in');
+            iframeView.classList.add('fade-out');
+            
+            setTimeout(() => {
+                iframeView.style.display = 'none';
+                iframeView.classList.remove('fade-out');
+                iframeEl.src = 'about:blank';
+                
+                hubView.style.display = 'block';
+                setTimeout(() => {
+                    hubView.classList.remove('fade-out');
+                }, 50);
+                
+                navStatus.style.display = 'none';
+                btnHome.classList.add('active');
+                
+                if (pushState) {
+                    history.pushState({view: 'hub'}, '', window.location.pathname);
+                }
+            }, 300);
+        }
+
+        iframeEl.onload = function() {
+            loadingBar.className = 'loading-bar loaded';
+            setTimeout(() => {
+                loadingBar.className = 'loading-bar';
+            }, 300);
+        };
+
+        document.querySelectorAll('.clean-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.getAttribute('href');
+                const title = this.querySelector('h2').textContent;
+                openProject(url, title);
+            });
+        });
+
+        btnHome.addEventListener('click', e => showHome(e));
+        navBrand.addEventListener('click', e => showHome(e));
+
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.view === 'project') {
+                openProject(e.state.url, e.state.title, false);
+            } else {
+                showHome(null, false);
+            }
+        });
+
+        // Theme Switcher Logic
+        const themeModal = document.getElementById('theme-modal');
+        const btnThemeSwitcher = document.getElementById('btn-theme-switcher');
+        const brandAvatar = document.querySelector('.brand-avatar');
+        const themeModalClose = document.getElementById('theme-modal-close');
+
+        function openThemeModal(e) {
+            if (e) e.preventDefault();
+            themeModal.style.display = 'flex';
+            setTimeout(() => {
+                themeModal.classList.add('active');
+            }, 10);
+        }
+
+        function closeThemeModal() {
+            themeModal.classList.remove('active');
+            setTimeout(() => {
+                themeModal.style.display = 'none';
+            }, 300);
+        }
+
+        if (btnThemeSwitcher) btnThemeSwitcher.addEventListener('click', openThemeModal);
+        if (brandAvatar) {
+            brandAvatar.style.cursor = 'pointer';
+            brandAvatar.addEventListener('click', openThemeModal);
+        }
+        if (themeModalClose) themeModalClose.addEventListener('click', closeThemeModal);
+        
+        themeModal.addEventListener('click', function(e) {
+            if (e.target === themeModal) {
+                closeThemeModal();
+            }
+        });
+    </script>
+</body>
+</html>
