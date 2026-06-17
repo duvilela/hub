@@ -1,4 +1,4 @@
-// lojacell - Store Engine & SPA Router
+// Ducell - Store Engine & SPA Router
 
 // --- CATALOG FALLBACK DATA ---
 const DEFAULT_PRODUCTS = [
@@ -41,16 +41,16 @@ const DEFAULT_PRODUCTS = [
 ];
 
 // --- APP STATE INITIALIZATION ---
-let products = JSON.parse(localStorage.getItem('lojacell_products'));
+let products = JSON.parse(localStorage.getItem('ducell_products'));
 if (!products || !Array.isArray(products) || products.length === 0) {
     products = DEFAULT_PRODUCTS;
-    localStorage.setItem('lojacell_products', JSON.stringify(products));
+    localStorage.setItem('ducell_products', JSON.stringify(products));
 }
 
-let cart = JSON.parse(localStorage.getItem('lojacell_cart')) || [];
-let users = JSON.parse(localStorage.getItem('lojacell_users')) || [];
-let session = JSON.parse(localStorage.getItem('lojacell_session')) || null;
-let orders = JSON.parse(localStorage.getItem('lojacell_orders')) || [];
+let cart = JSON.parse(localStorage.getItem('ducell_cart')) || [];
+let users = JSON.parse(localStorage.getItem('ducell_users')) || [];
+let session = JSON.parse(localStorage.getItem('ducell_session')) || null;
+let orders = JSON.parse(localStorage.getItem('ducell_orders')) || [];
 
 // Active brand filter state
 let currentFilter = 'all';
@@ -233,7 +233,7 @@ document.addEventListener('click', (e) => {
 
     if (e.target.closest('#btn-logout')) {
         session = null;
-        localStorage.removeItem('lojacell_session');
+        localStorage.removeItem('ducell_session');
         updateNavbarSession();
         showToast("Sessão encerrada com sucesso.");
         showView('view-home');
@@ -434,7 +434,7 @@ function updateCartBadge() {
 }
 
 function saveCart() {
-    localStorage.setItem('lojacell_cart', JSON.stringify(cart));
+    localStorage.setItem('ducell_cart', JSON.stringify(cart));
     updateCartBadge();
     renderCart();
 }
@@ -617,7 +617,7 @@ formLogin.addEventListener('submit', (e) => {
     // Admin testing account bypass
     if (userOrEmail === 'admin' && password === 'admin123') {
         session = { username: 'admin', name: 'Administrador CMS', role: 'admin' };
-        localStorage.setItem('lojacell_session', JSON.stringify(session));
+        localStorage.setItem('ducell_session', JSON.stringify(session));
         updateNavbarSession();
         showToast("Logado como Administrador!");
         // Load CMS dashboard
@@ -631,7 +631,7 @@ formLogin.addEventListener('submit', (e) => {
     const foundUser = users.find(u => (u.username === userOrEmail || u.email === userOrEmail) && u.password === password);
     if (foundUser) {
         session = { username: foundUser.username, name: foundUser.name, role: 'user' };
-        localStorage.setItem('lojacell_session', JSON.stringify(session));
+        localStorage.setItem('ducell_session', JSON.stringify(session));
         updateNavbarSession();
         showToast(`Bem vindo de volta, ${foundUser.name}!`);
         
@@ -673,7 +673,7 @@ formRegister.addEventListener('submit', (e) => {
 
     const newUser = { name, username, email, password, role: 'user' };
     users.push(newUser);
-    localStorage.setItem('lojacell_users', JSON.stringify(users));
+    localStorage.setItem('ducell_users', JSON.stringify(users));
 
     showToast("Cadastro realizado! Faça login com seus dados.");
     // Switch to login tab automatically
@@ -853,7 +853,7 @@ btnSubmitOrder.addEventListener('click', () => {
             product.stock -= item.quantity;
         }
     });
-    localStorage.setItem('lojacell_products', JSON.stringify(products));
+    localStorage.setItem('ducell_products', JSON.stringify(products));
 
     // Calculate totals
     const totals = calculateTotals();
@@ -870,11 +870,11 @@ btnSubmitOrder.addEventListener('click', () => {
     };
 
     orders.push(newOrder);
-    localStorage.setItem('lojacell_orders', JSON.stringify(orders));
+    localStorage.setItem('ducell_orders', JSON.stringify(orders));
 
     // Clear cart
     cart = [];
-    localStorage.removeItem('lojacell_cart');
+    localStorage.removeItem('ducell_cart');
     updateCartBadge();
 
     // Render success view details
@@ -1093,7 +1093,7 @@ formProduct.addEventListener('submit', (e) => {
         showToast("Novo smartphone adicionado ao catálogo!");
     }
 
-    localStorage.setItem('lojacell_products', JSON.stringify(products));
+    localStorage.setItem('ducell_products', JSON.stringify(products));
     productModal.classList.remove('active');
     
     // Re-render views
@@ -1103,7 +1103,7 @@ formProduct.addEventListener('submit', (e) => {
 
 function deleteProduct(productId) {
     products = products.filter(p => p.id !== productId);
-    localStorage.setItem('lojacell_products', JSON.stringify(products));
+    localStorage.setItem('ducell_products', JSON.stringify(products));
     showToast("Smartphone excluído com sucesso!");
     
     // Clear deleted product from cart if there
@@ -1131,7 +1131,7 @@ tabCmsOrders.addEventListener('click', () => {
 
 document.getElementById('btn-admin-logout').addEventListener('click', () => {
     session = null;
-    localStorage.removeItem('lojacell_session');
+    localStorage.removeItem('ducell_session');
     updateNavbarSession();
     showToast("Sessão do Painel encerrada.");
     showView('view-home');
