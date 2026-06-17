@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lojacell | Loja Virtual de Smartphones</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Header / Glassmorphic Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand" id="brand-link">
+                <i class="fa-solid fa-mobile-screen-button logo-icon"></i>
+                <span class="brand-text">lojacell<span class="dot">.</span></span>
+            </a>
+
+            <!-- Search Bar (Active on Home View) -->
+            <div class="nav-search-container" id="nav-search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" placeholder="Buscar por modelo, marca...">
+            </div>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions">
+                <!-- Session/Auth Info -->
+                <div class="user-session-container" id="user-session-info">
+                    <!-- Dynamic user name or login button -->
+                    <button class="btn-login" id="btn-login-view">
+                        <i class="fa-regular fa-user"></i>
+                        <span>Entrar</span>
+                    </button>
+                </div>
+
+                <!-- Admin Dashboard Link (Visible only to admin) -->
+                <button class="nav-icon-btn admin-only-btn" id="btn-admin-dashboard" title="Painel CMS" style="display: none;">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span class="btn-badge-label">Painel</span>
+                </button>
+
+                <!-- Shopping Cart Button -->
+                <button class="nav-icon-btn" id="btn-toggle-cart" title="Ver Carrinho">
+                    <div class="cart-icon-wrapper">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge" id="cart-count">0</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast-notification">
+        <i class="fa-solid fa-circle-check toast-icon" id="toast-icon"></i>
+        <span class="toast-message" id="toast-msg">Mensagem padrão</span>
+    </div>
+
+    <!-- MAIN SPA CONTAINER -->
+    <main class="main-content">
+        
+        <!-- 1. HOME/CATALOG VIEW -->
+        <section id="view-home" class="view-section active">
+            <!-- Hero Promo Banner -->
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <span class="hero-tag">Tecnologia Premium</span>
+                    <h1 class="hero-title">O smartphone do futuro, hoje nas suas mãos.</h1>
+                    <p class="hero-subtitle">Conheça as últimas novidades com frete grátis e parcelamento em até 12x sem juros.</p>
+                    <a href="#catalog-start" class="btn-primary hero-btn">Explore os Modelos <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-phone-mockup">
+                        <div class="mockup-inner">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catalog Section -->
+            <div class="catalog-container" id="catalog-start">
+                <div class="catalog-header">
+                    <h2>Nossos Modelos</h2>
+                    <!-- Filters -->
+                    <div class="brand-filters">
+                        <button class="filter-btn active" data-brand="all">Todos</button>
+                        <button class="filter-btn" data-brand="Apple">Apple</button>
+                        <button class="filter-btn" data-brand="Samsung">Samsung</button>
+                        <button class="filter-btn" data-brand="Xiaomi">Xiaomi</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PRODUCT DETAIL VIEW -->
+        <section id="view-product-detail" class="view-section">
+            <div class="back-nav">
+                <button class="btn-text" id="btn-back-to-home">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar para a loja
+                </button>
+            </div>
+            
+            <div class="product-detail-container" id="product-detail-content">
+                <!-- Dynamic rendering via JS -->
+            </div>
+        </section>
+
+        <!-- 3. AUTH VIEW (LOGIN / REGISTER) -->
+        <section id="view-auth" class="view-section">
+            <div class="auth-card">
+                <div class="auth-tabs">
+                    <button class="auth-tab-btn active" id="tab-login">Login</button>
+                    <button class="auth-tab-btn" id="tab-register">Cadastro</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="form-login" class="auth-form active">
+                    <h3 class="auth-title">Acesse sua conta</h3>
+                    <p class="auth-description">Preencha seus dados para continuar comprando.</p>
+                    
+                    <div class="form-group">
+                        <label for="login-username">Nome de usuário ou Email</label>
+                        <input type="text" id="login-username" required placeholder="Digite seu usuário">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Senha</label>
+                        <input type="password" id="login-password" required placeholder="Digite sua senha">
+                    </div>
+                    <div class="auth-help">
+                        <span class="auth-note">Dica para testes: use <strong>admin</strong> e senha <strong>admin123</strong> para CMS.</span>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Entrar</button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="form-register" class="auth-form">
+                    <h3 class="auth-title">Crie uma nova conta</h3>
+                    <p class="auth-description">Cadastre-se para acompanhar seus pedidos e finalizar compras mais rápido.</p>
+                    
+                    <div class="form-group">
+                        <label for="register-name">Nome Completo</label>
+                        <input type="text" id="register-name" required placeholder="Ex: João Silva">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-username">Nome de Usuário</label>
+                        <input type="text" id="register-username" required placeholder="Escolha um usuário">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">E-mail</label>
+                        <input type="email" id="register-email" required placeholder="exemplo@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Senha</label>
+                        <input type="password" id="register-password" required placeholder="Mínimo 6 caracteres">
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Criar Conta</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 4. CHECKOUT VIEW -->
+        <section id="view-checkout" class="view-section">
+            <h2 class="view-title"><i class="fa-solid fa-credit-card"></i> Finalizar Compra</h2>
+            
+            <div class="checkout-layout">
+                <!-- Left: Forms -->
+                <div class="checkout-forms">
+                    <form id="form-checkout">
+                        <!-- Step 1: Shipping Address -->
+                        <div class="checkout-card">
+                            <h3 class="checkout-card-title"><span class="step-badge">1</span> Endereço de Entrega</h3>
+                            <div class="form-row">
+                                <div class="form-group flex-2">
+                                    <label for="checkout-cep">CEP</label>
+                                    <input type="text" id="checkout-cep" placeholder="00000-000" required>
+                                </div>
+                                <div class="form-group flex-3">
+                                    <label for="checkout-street">Logradouro</label>
+                                    <input type="text" id="checkout-street" placeholder="Rua, Avenida..." required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group flex-1">
+                                    <label for="checkout-number">Número</label>
+                                    <input type="text" id="checkout-number" required>
+                                </div>
+                                <div class="form-group flex-2">
+                                    <label for="checkout-complement">Complemento</label>
+                                    <input type="text" id="checkout-complement" placeholder="Apto, Bloco...">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group flex-2">
+                                    <label for="checkout-city">Cidade</label>
+                                    <input type="text" id="checkout-city" required>
+                                </div>
+                                <div class="form-group flex-1">
+                                    <label for="checkout-state">Estado (UF)</label>
+                                    <input type="text" id="checkout-state" maxlength="2" placeholder="SP" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Payment Method -->
+                        <div class="checkout-card">
+                            <h3 class="checkout-card-title"><span class="step-badge">2</span> Método de Pagamento</h3>
+                            <div class="payment-selector">
+                                <label class="payment-option-label active">
+                                    <input type="radio" name="payment-method" value="credit-card" checked>
+                                    <div class="option-details">
+                                        <i class="fa-solid fa-credit-card"></i>
+                                        <div>
+                                            <strong>Cartão de Crédito</strong>
+                                            <span>Até 12x sem juros</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option-label">
+                                    <input type="radio" name="payment-method" value="pix">
+                                    <div class="option-details">
+                                        <i class="fa-brands fa-pix"></i>
+                                        <div>
+                                            <strong>Pix</strong>
+                                            <span>Aprovação instantânea (-5%)</span>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="payment-option-label">
+                                    <input type="radio" name="payment-method" value="boleto">
+                                    <div class="option-details">
+                                        <i class="fa-solid fa-barcode"></i>
+                                        <div>
+                                            <strong>Boleto Bancário</strong>
+                                            <span>Até 3 dias úteis para compensar</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Conditional Fields: Credit Card -->
+                            <div class="payment-details-form" id="payment-credit-card">
+                                <div class="form-group">
+                                    <label for="card-number">Número do Cartão</label>
+                                    <input type="text" id="card-number" placeholder="4000 1234 5678 9010">
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-name">Nome Impresso no Cartão</label>
+                                    <input type="text" id="card-name" placeholder="EX: JOAO H SILVA">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group flex-2">
+                                        <label for="card-expiry">Validade</label>
+                                        <input type="text" id="card-expiry" placeholder="MM/AA">
+                                    </div>
+                                    <div class="form-group flex-1">
+                                        <label for="card-cvv">CVV</label>
+                                        <input type="text" id="card-cvv" placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-installments">Parcelas</label>
+                                    <select id="card-installments">
+                                        <!-- Dynamic installments based on cart total -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Conditional Fields: Pix -->
+                            <div class="payment-details-form" id="payment-pix" style="display: none;">
+                                <div class="pix-simulation-box">
+                                    <div class="pix-qr-mock">
+                                        <!-- Elegant SVG Mock QR Code -->
+                                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="120" height="120" rx="8" fill="#F4F4F5"/>
+                                            <rect x="15" y="15" width="25" height="25" stroke="#18181B" stroke-width="4"/>
+                                            <rect x="23" y="23" width="9" height="9" fill="#18181B"/>
+                                            <rect x="80" y="15" width="25" height="25" stroke="#18181B" stroke-width="4"/>
+                                            <rect x="88" y="23" width="9" height="9" fill="#18181B"/>
+                                            <rect x="15" y="80" width="25" height="25" stroke="#18181B" stroke-width="4"/>
+                                            <rect x="23" y="88" width="9" height="9" fill="#18181B"/>
+                                            <!-- QR lines -->
+                                            <path d="M50 15h10v10H50zM70 15h5v5h-5zM50 35h5v5h-5zM65 30h10v5H65zM55 45h15v5H55zM15 50h10v10H15zM35 55h15v5H35zM75 55h10v10H75zM55 65h10v15H55zM15 70h5v5h-5zM30 70h10v5H30zM80 80h10v10H80zM95 70h10v15H95zM75 95h15v10H75zM100 95h5v5h-5zM50 95h10v10H50zM35 85h10v5H35zM15 100h15v5H15z" fill="#18181B"/>
+                                        </svg>
+                                    </div>
+                                    <div class="pix-instructions">
+                                        <p>Escaneie o código QR acima pelo aplicativo do seu banco ou copie a chave Pix abaixo:</p>
+                                        <div class="pix-key-container">
+                                            <input type="text" id="pix-key-val" value="00020101021226830014br.gov.bcb.pix2561lojacell-mock-key-0522bc8b" readonly>
+                                            <button type="button" class="btn-secondary" id="btn-copy-pix">Copiar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Conditional Fields: Boleto -->
+                            <div class="payment-details-form" id="payment-boleto" style="display: none;">
+                                <div class="boleto-simulation-box">
+                                    <i class="fa-solid fa-barcode boleto-icon"></i>
+                                    <div class="boleto-instructions">
+                                        <p>O boleto será gerado após a confirmação do pedido.</p>
+                                        <p class="text-muted">Você poderá pagar em qualquer agência bancária ou internet banking até o vencimento.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right: Order Summary -->
+                <div class="checkout-summary">
+                    <div class="checkout-card sticky-card">
+                        <h3 class="checkout-card-title">Resumo do Pedido</h3>
+                        <div class="checkout-items-list" id="checkout-items-list">
+                            <!-- Dynamic checkout items -->
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-line">
+                            <span>Subtotal</span>
+                            <span id="checkout-subtotal">R$ 0,00</span>
+                        </div>
+                        <div class="summary-line" id="pix-discount-row" style="display: none;">
+                            <span class="discount-label">Desconto Pix (5%)</span>
+                            <span class="discount-value" id="checkout-discount">- R$ 0,00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Frete</span>
+                            <span class="shipping-value">Grátis</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-line total-line">
+                            <span>Total</span>
+                            <span id="checkout-total">R$ 0,00</span>
+                        </div>
+                        
+                        <button type="button" class="btn-primary btn-full btn-large" id="btn-submit-order">
+                            Confirmar e Pagar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CHECKOUT SUCCESS VIEW -->
+        <section id="view-success" class="view-section">
+            <div class="success-box">
+                <div class="success-icon-wrapper">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2 class="success-title">Pedido Realizado com Sucesso!</h2>
+                <p class="success-msg">Agradecemos pela preferência. Seu pedido foi processado e já estamos preparando para o envio.</p>
+                <div class="order-info-card">
+                    <p><strong>Nº do Pedido:</strong> <span id="success-order-id">#LC-171829</span></p>
+                    <p><strong>Método de Pagamento:</strong> <span id="success-payment-method">Cartão de Crédito</span></p>
+                    <p><strong>Total:</strong> <span id="success-total">R$ 7.999,00</span></p>
+                </div>
+                <button class="btn-primary" id="btn-success-home">Voltar para a Loja</button>
+            </div>
+        </section>
+
+        <!-- 6. ADMIN CMS DASHBOARD -->
+        <section id="view-admin" class="view-section">
+            <div class="admin-header">
+                <div>
+                    <h2 class="view-title"><i class="fa-solid fa-sliders"></i> Painel de Gestão CMS</h2>
+                    <p class="text-muted">Gerencie o catálogo de produtos e visualize os pedidos dos clientes.</p>
+                </div>
+                <div class="admin-actions">
+                    <button class="btn-primary" id="btn-add-product-modal">
+                        <i class="fa-solid fa-plus"></i> Novo Produto
+                    </button>
+                    <button class="btn-secondary" id="btn-admin-logout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Sair do Painel
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="admin-stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon purple"><i class="fa-solid fa-dollar-sign"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Vendas Totais</span>
+                        <h3 class="stat-value" id="stat-sales">R$ 0,00</h3>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Produtos Ativos</span>
+                        <h3 class="stat-value" id="stat-products-count">0</h3>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Pedidos Recebidos</span>
+                        <h3 class="stat-value" id="stat-orders-count">0</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Sub-Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" id="tab-cms-products">Catálogo de Produtos</button>
+                <button class="admin-tab-btn" id="tab-cms-orders">Pedidos Realizados</button>
+            </div>
+
+            <!-- Products CMS Table -->
+            <div class="admin-content-card active" id="cms-products-panel">
+                <div class="table-responsive">
+                    <table class="cms-table">
+                        <thead>
+                            <tr>
+                                <th>Imagem</th>
+                                <th>Nome do Produto</th>
+                                <th>Marca</th>
+                                <th>Preço</th>
+                                <th>Estoque</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cms-products-list">
+                            <!-- Dynamic CMS products rendering -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Orders List Panel -->
+            <div class="admin-content-card" id="cms-orders-panel">
+                <div class="table-responsive">
+                    <table class="cms-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Endereço</th>
+                                <th>Total</th>
+                                <th>Método</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cms-orders-list">
+                            <!-- Dynamic CMS orders list -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SHOPPING CART SLIDE DRAWER -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Seu Carrinho</h3>
+            <button class="close-drawer-btn" id="btn-close-cart">&times;</button>
+        </div>
+        
+        <!-- Cart Items Container -->
+        <div class="cart-drawer-body" id="cart-drawer-items">
+            <!-- Dynamic cart items, or empty state -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="cart-drawer-footer">
+            <div class="cart-summary-line">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">R$ 0,00</span>
+            </div>
+            <p class="cart-shipping-notice">Frete grátis para todo o Brasil.</p>
+            <button class="btn-primary btn-full btn-large" id="btn-go-checkout">
+                Finalizar Compra
+            </button>
+        </div>
+    </aside>
+
+    <!-- PRODUCT FORM MODAL (ADD / EDIT) -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Adicionar Novo Produto</h3>
+                <button class="modal-close" id="btn-close-product-modal">&times;</button>
+            </div>
+            <form id="form-product">
+                <input type="hidden" id="prod-id">
+                
+                <div class="form-group">
+                    <label for="prod-name">Nome do Produto</label>
+                    <input type="text" id="prod-name" required placeholder="Ex: iPhone 15 Pro Max">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group flex-1">
+                        <label for="prod-brand">Marca</label>
+                        <select id="prod-brand" required>
+                            <option value="Apple">Apple</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group flex-1" id="custom-brand-group" style="display: none;">
+                        <label for="prod-custom-brand">Outra Marca</label>
+                        <input type="text" id="prod-custom-brand" placeholder="Nome da marca">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group flex-1">
+                        <label for="prod-price">Preço (R$)</label>
+                        <input type="number" id="prod-price" step="0.01" min="0" required placeholder="0.00">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="prod-stock">Estoque Inicial</label>
+                        <input type="number" id="prod-stock" min="0" required placeholder="10">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="prod-description">Descrição</label>
+                    <textarea id="prod-description" rows="3" required placeholder="Descreva os principais diferenciais e especificações..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="prod-image">Imagem (URL ou Seleção)</label>
+                    <select id="prod-image">
+                        <option value="images/iphone15.png">iPhone 15 Pro (Apple)</option>
+                        <option value="images/s24ultra.png">Galaxy S24 Ultra (Samsung)</option>
+                        <option value="images/xiaomi14.png">Xiaomi 14 Ultra (Xiaomi)</option>
+                        <option value="images/iphone13.png">iPhone 13 (Apple)</option>
+                        <option value="custom">Outra Imagem (Digitar URL)</option>
+                    </select>
+                    <input type="text" id="prod-image-custom" style="display: none; margin-top: 0.5rem;" placeholder="https://exemplo.com/imagem.png">
+                </div>
+
+                <button type="submit" class="btn-primary btn-full" id="btn-save-product">Salvar Produto</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 15 Pro Max",
+    "brand": "Apple",
+    "price": 7999.00,
+    "image": "images/iphone15.png",
+    "stock": 15,
+    "description": "Chip A17 Pro, titânio aeroespacial, câmera tripla de 48MP e zoom óptico de 5x."
+  },
+  {
+    "id": 2,
+    "name": "Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "price": 6899.00,
+    "image": "images/s24ultra.png",
+    "stock": 10,
+    "description": "Galaxy AI integrada, Processador Snapdragon 8 Gen 3, câmera de 200MP e caneta S Pen."
+  },
+  {
+    "id": 3,
+    "name": "Xiaomi 14 Ultra",
+    "brand": "Xiaomi",
+    "price": 5999.00,
+    "image": "images/xiaomi14.png",
+    "stock": 8,
+    "description": "Lente óptica Leica Summilux, sensor de 1 polegada, Snapdragon 8 Gen 3 e carregamento de 90W."
+  },
+  {
+    "id": 4,
+    "name": "iPhone 13",
+    "brand": "Apple",
+    "price": 3799.00,
+    "image": "images/iphone13.png",
+    "stock": 20,
+    "description": "Tela Super Retina XDR de 6,1 polegadas, chip A15 Bionic e sistema avançado de câmera dupla."
+  }
+]
