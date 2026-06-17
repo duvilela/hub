@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novidades - DHIA Play</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS Local -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .news-wrapper {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .news-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .news-header h1 {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .news-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .news-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .news-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+        }
+        .news-card:hover::before {
+            opacity: 1;
+        }
+        .news-tag-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .news-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+        }
+        .news-tag.new {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .news-tag.update {
+            background-color: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        .news-tag.community {
+            background-color: rgba(139, 92, 246, 0.15);
+            color: var(--accent-purple);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        .news-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .news-card h3 {
+            font-family: var(--font-title);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .news-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .news-btn {
+            align-self: flex-start;
+            margin-top: auto;
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--transition);
+        }
+        .news-card:hover .news-btn {
+            color: var(--accent-purple);
+            transform: translateX(4px);
+        }
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 4rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.02);
+            transition: var(--transition);
+        }
+        .back-to-home:hover {
+            color: var(--text-primary);
+            border-color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .news-header h1 { font-size: 2.2rem; }
+            .news-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="nav-logo">
+                    <i class="fa-solid fa-brain nav-logo-icon"></i>
+                    <span>DH<span class="highlight">IA</span> Play</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+                <li class="active-menu"><a href="Novidades.html"><i class="fa-solid fa-book-open"></i> Novidades</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="news-wrapper">
+        <header class="news-header">
+            <h1>Novidades da DHIA Play</h1>
+            <p>Acompanhe em primeira mão os lançamentos de cursos, novos recursos da plataforma e notícias do mundo da inteligência artificial.</p>
+        </header>
+
+        <section class="news-grid">
+            <!-- Card 1 -->
+            <article class="news-card">
+                <div class="news-tag-container">
+                    <span class="news-tag new">Novo Curso</span>
+                    <span class="news-date">Junho 2026</span>
+                </div>
+                <h3>Formação Agentes de IA</h3>
+                <p>O curso definitivo de Agentes de IA foi lançado! Aprenda a modelar, estruturar e coordenar equipes autônomas usando LangGraph, CrewAI e AutoGen do básico ao avançado.</p>
+                <a href="index.html" class="news-btn">Acessar trilha <i class="fa-solid fa-arrow-right"></i></a>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="news-card">
+                <div class="news-tag-container">
+                    <span class="news-tag update">Atualização</span>
+                    <span class="news-date">Maio 2026</span>
+                </div>
+                <h3>Modelos Gemini 1.5 Flash</h3>
+                <p>Todos os projetos práticos de processamento de texto e visão computacional da plataforma foram migrados para a nova API do Gemini 1.5 Flash, oferecendo mais velocidade e custo menor.</p>
+                <a href="index.html" class="news-btn">Acessar trilha <i class="fa-solid fa-arrow-right"></i></a>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="news-card">
+                <div class="news-tag-container">
+                    <span class="news-tag community">Comunidade</span>
+                    <span class="news-date">Maio 2026</span>
+                </div>
+                <h3>Servidor Oficial no Discord</h3>
+                <p>Agora temos um espaço exclusivo no Discord para nossos estudantes compartilharem códigos, dúvidas, formarem parcerias e discutirem novas tecnologias de IA. Entre e faça parte!</p>
+                <a href="index.html" class="news-btn">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+            </article>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-to-home">
+                <i class="fa-solid fa-arrow-left"></i> Voltar para o Início
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>
