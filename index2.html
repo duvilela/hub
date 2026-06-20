@@ -251,6 +251,8 @@
         .card:nth-child(6)::before { background: linear-gradient(90deg, #3b82f6, #6366f1); }
         .card:nth-child(7)::before { background: linear-gradient(90deg, #a855f7, #7c3aed); }
         .card:nth-child(8)::before { background: linear-gradient(90deg, #10b981, #059669); }
+        .card:nth-child(9)::before { background: linear-gradient(90deg, #3b82f6, #06b6d4); }
+        .card:nth-child(10)::before { background: linear-gradient(90deg, #8b5cf6, #ec4899); }
 
         .card:hover {
             transform: translateY(-4px);
@@ -278,6 +280,8 @@
         .card:nth-child(6) .card-icon { background: rgba(59,130,246,0.1); }
         .card:nth-child(7) .card-icon { background: rgba(168,85,247,0.1); }
         .card:nth-child(8) .card-icon { background: rgba(16,185,129,0.1); }
+        .card:nth-child(9) .card-icon { background: rgba(59,130,246,0.1); }
+        .card:nth-child(10) .card-icon { background: rgba(139,92,246,0.1); }
 
         .card h2 { font-size: 1.3rem; font-weight: 700; }
         .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
@@ -299,6 +303,8 @@
         .card:nth-child(6) .tag { background: rgba(59,130,246,0.1); color: #3b82f6; }
         .card:nth-child(7) .tag { background: rgba(168,85,247,0.1); color: #a855f7; }
         .card:nth-child(8) .tag { background: rgba(16,185,129,0.1); color: #10b981; }
+        .card:nth-child(9) .tag { background: rgba(59,130,246,0.1); color: #3b82f6; }
+        .card:nth-child(10) .tag { background: rgba(139,92,246,0.1); color: var(--accent3); }
 
         .card-arrow {
             position: absolute;
@@ -527,6 +533,10 @@
                     <i class="fa-solid fa-layer-group"></i>
                     <span>Projetos</span>
                 </button>
+                <button class="nav-btn" id="btn-extensions" title="Extensões Chrome">
+                    <i class="fa-brands fa-chrome"></i>
+                    <span>Extensões Chrome</span>
+                </button>
                 <button class="nav-btn" id="btn-theme-switcher" title="Trocar Tema">
                     <i class="fa-solid fa-palette"></i>
                     <span>Temas</span>
@@ -653,6 +663,18 @@
                 </div>
                 <span class="card-arrow">→</span>
             </a>
+
+            <a href="https://duvilela.github.io/dev-chrome/" class="card">
+                <div class="card-icon">🌐</div>
+                <h2>Extensões Chrome</h2>
+                <p>Coleção de extensões úteis para o Google Chrome. Produtividade, utilitários e ferramentas para desenvolvedores.</p>
+                <div class="card-tags">
+                    <span class="tag">Chrome</span>
+                    <span class="tag">Extensões</span>
+                    <span class="tag">Produtividade</span>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
         </div>
 
         <footer>
@@ -741,6 +763,14 @@
                 navStatus.style.display = 'flex';
                 
                 btnHome.classList.remove('active');
+                const btnExtensions = document.getElementById('btn-extensions');
+                if (btnExtensions) {
+                    if (title === 'Extensões Chrome') {
+                        btnExtensions.classList.add('active');
+                    } else {
+                        btnExtensions.classList.remove('active');
+                    }
+                }
                 
                 if (pushState) {
                     const hash = '#' + encodeURIComponent(title.toLowerCase().trim().replace(/\s+/g, '-'));
@@ -770,6 +800,8 @@
                 
                 navStatus.style.display = 'none';
                 btnHome.classList.add('active');
+                const btnExtensions = document.getElementById('btn-extensions');
+                if (btnExtensions) btnExtensions.classList.remove('active');
                 
                 if (pushState) {
                     history.pushState({view: 'hub'}, '', window.location.pathname);
@@ -786,14 +818,21 @@
 
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('click', function(e) {
-                e.preventDefault();
                 const url = this.getAttribute('href');
+                if (url.startsWith('http')) return;
+                e.preventDefault();
                 const title = this.querySelector('h2').textContent;
                 openProject(url, title);
             });
         });
 
         btnHome.addEventListener('click', e => showHome(e));
+        const btnExtensions = document.getElementById('btn-extensions');
+        if (btnExtensions) {
+            btnExtensions.addEventListener('click', function(e) {
+                window.location.href = 'https://duvilela.github.io/dev-chrome/';
+            });
+        }
         navBrand.addEventListener('click', e => showHome(e));
 
         window.addEventListener('popstate', function(e) {

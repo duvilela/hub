@@ -688,6 +688,10 @@
                     <i class="fa-solid fa-house"></i>
                     <span>Index</span>
                 </button>
+                <button class="nav-link" id="btn-extensions" title="Extensões Chrome">
+                    <i class="fa-brands fa-chrome"></i>
+                    <span>Extensões Chrome</span>
+                </button>
                 <button class="nav-link" id="btn-theme-switcher" title="Trocar Tema">
                     <i class="fa-solid fa-palette"></i>
                     <span>Temas</span>
@@ -851,6 +855,21 @@
                 </div>
                 <div class="card-action">Initialize <i class="fa-solid fa-arrow-right"></i></div>
             </a>
+
+            <!-- Extensões Chrome -->
+            <a href="https://duvilela.github.io/dev-chrome/" class="tech-card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-brands fa-chrome"></i></div>
+                    <div class="card-id">#MOD-10</div>
+                </div>
+                <h2>Chrome Ext</h2>
+                <p>Coleção de extensões úteis para o Google Chrome. Produtividade, utilitários e ferramentas para desenvolvedores.</p>
+                <div class="tech-card-tags">
+                    <span class="tech-tag">Chrome</span>
+                    <span class="tech-tag">Extensões</span>
+                </div>
+                <div class="card-action">Initialize <i class="fa-solid fa-arrow-right"></i></div>
+            </a>
         </div>
 
         <footer>
@@ -947,6 +966,14 @@
                 
                 // Toggle active navbar tab
                 btnHome.classList.remove('active');
+                const btnExtensions = document.getElementById('btn-extensions');
+                if (btnExtensions) {
+                    if (title === 'Extensões Chrome') {
+                        btnExtensions.classList.add('active');
+                    } else {
+                        btnExtensions.classList.remove('active');
+                    }
+                }
                 
                 if (pushState) {
                     const hash = '#' + encodeURIComponent(title.toLowerCase().trim().replace(/\s+/g, '-'));
@@ -978,6 +1005,8 @@
                 
                 navStatus.style.display = 'none';
                 btnHome.classList.add('active');
+                const btnExtensions = document.getElementById('btn-extensions');
+                if (btnExtensions) btnExtensions.classList.remove('active');
                 
                 if (pushState) {
                     history.pushState({view: 'hub'}, '', window.location.pathname);
@@ -996,14 +1025,21 @@
         // Click handlers for cards
         document.querySelectorAll('.tech-card').forEach(card => {
             card.addEventListener('click', function(e) {
-                e.preventDefault();
                 const url = this.getAttribute('href');
+                if (url.startsWith('http')) return;
+                e.preventDefault();
                 const title = this.querySelector('h2').textContent;
                 openProject(url, title);
             });
         });
 
         btnHome.addEventListener('click', e => showHome(e));
+        const btnExtensions = document.getElementById('btn-extensions');
+        if (btnExtensions) {
+            btnExtensions.addEventListener('click', function(e) {
+                window.location.href = 'https://duvilela.github.io/dev-chrome/';
+            });
+        }
         navBrand.addEventListener('click', e => showHome(e));
 
         // Popstate browser navigation
