@@ -860,37 +860,7 @@
                 <div class="card-action">Initialize <i class="fa-solid fa-arrow-right"></i></div>
             </a>
 
-            <!-- Extensões Chrome -->
-            <a href="https://duvilela.github.io/dev-chrome/" class="tech-card">
-                <div class="card-header">
-                    <div class="card-icon"><i class="fa-brands fa-chrome"></i></div>
-                    <div class="card-id">#MOD-10</div>
-                </div>
-                <h2>Chrome Ext</h2>
-                <p>Coleção de extensões úteis para o Google Chrome. Produtividade, utilitários e ferramentas para desenvolvedores.</p>
-                <div class="tech-card-tags">
-                    <span class="tech-tag">Chrome</span>
-                    <span class="tech-tag">Extensões</span>
-                </div>
-                <div class="card-action">Initialize <i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-
-            <!-- Aplicativos Web -->
-            <a href="https://duvilela.github.io/apps/index.html" class="tech-card">
-                <div class="card-header">
-                    <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
-                    <div class="card-id">#APP-01</div>
-                </div>
-                <h2>Aplicativos</h2>
-                <p>Coleção de ferramentas analíticas e painéis interativos. Gestão de banca, calculadoras matemáticas e estatísticas.</p>
-                <div class="tech-card-tags">
-                    <span class="tech-tag">Gestão</span>
-                    <span class="tech-tag">Estatísticas</span>
-                    <span class="tech-tag">SureCalc</span>
-                </div>
-                <div class="card-action">Initialize <i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-        </div>
+            </div>
 
         <footer>
             <p>SYSTEM.COPYRIGHT &copy; 2026<!-- | <a href="https://github.com/duvilela" target="_blank">GITHUB.REPO</a>--></p>
@@ -1053,7 +1023,7 @@
             });
         });
 
-        btnHome.addEventListener('click', e => showHome(e));
+        btnHome.addEventListener('click', function(e) { window.location.href = 'https://duvilela.github.io/'; });
         const btnExtensions = document.getElementById('btn-extensions');
         if (btnExtensions) {
             btnExtensions.addEventListener('click', function(e) {

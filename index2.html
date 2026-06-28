@@ -668,31 +668,7 @@
                 <span class="card-arrow">→</span>
             </a>
 
-            <a href="https://duvilela.github.io/dev-chrome/" class="card">
-                <div class="card-icon">🌐</div>
-                <h2>Extensões Chrome</h2>
-                <p>Coleção de extensões úteis para o Google Chrome. Produtividade, utilitários e ferramentas para desenvolvedores.</p>
-                <div class="card-tags">
-                    <span class="tag">Chrome</span>
-                    <span class="tag">Extensões</span>
-                    <span class="tag">Produtividade</span>
-                </div>
-                <span class="card-arrow">→</span>
-            </a>
-
-            <!-- Aplicativos Web -->
-            <a href="https://duvilela.github.io/apps/index.html" class="card">
-                <div class="card-icon">🚀</div>
-                <h2>Aplicativos Web</h2>
-                <p>Coleção de ferramentas analíticas e painéis interativos. Gestão de banca, calculadoras matemáticas e estatísticas.</p>
-                <div class="card-tags">
-                        <span class="tag">Gestão</span>
-                        <span class="tag">Estatísticas</span>
-                        <span class="tag">SureCalc</span>
-                    </div>
-                <span class="card-arrow">→</span>
-            </a>
-        </div>
+            </div>
 
         <footer>
             <p><!-- <a href="https://github.com/duvilela" target="_blank">GitHub</a> · --> duvilela.github.io</p>
@@ -843,7 +819,7 @@
             });
         });
 
-        btnHome.addEventListener('click', e => showHome(e));
+        btnHome.addEventListener('click', function(e) { window.location.href = 'https://duvilela.github.io/'; });
         const btnExtensions = document.getElementById('btn-extensions');
         if (btnExtensions) {
             btnExtensions.addEventListener('click', function(e) {
