@@ -692,6 +692,10 @@
                     <i class="fa-brands fa-chrome"></i>
                     <span>Extensões Chrome</span>
                 </button>
+                <button class="nav-link" id="btn-apps" title="Aplicativos Web">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>Aplicativos</span>
+                </button>
                 <button class="nav-link" id="btn-theme-switcher" title="Trocar Tema">
                     <i class="fa-solid fa-palette"></i>
                     <span>Temas</span>
@@ -870,6 +874,22 @@
                 </div>
                 <div class="card-action">Initialize <i class="fa-solid fa-arrow-right"></i></div>
             </a>
+
+            <!-- Aplicativos Web -->
+            <a href="https://duvilela.github.io/apps/index.html" class="tech-card">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="card-id">#APP-01</div>
+                </div>
+                <h2>Aplicativos</h2>
+                <p>Coleção de ferramentas analíticas e painéis interativos. Gestão de banca, calculadoras matemáticas e estatísticas.</p>
+                <div class="tech-card-tags">
+                    <span class="tech-tag">Gestão</span>
+                    <span class="tech-tag">Estatísticas</span>
+                    <span class="tech-tag">SureCalc</span>
+                </div>
+                <div class="card-action">Initialize <i class="fa-solid fa-arrow-right"></i></div>
+            </a>
         </div>
 
         <footer>
@@ -1038,6 +1058,12 @@
         if (btnExtensions) {
             btnExtensions.addEventListener('click', function(e) {
                 window.location.href = 'https://duvilela.github.io/dev-chrome/';
+            });
+        }
+        const btnApps = document.getElementById('btn-apps');
+        if (btnApps) {
+            btnApps.addEventListener('click', function(e) {
+                window.location.href = 'https://duvilela.github.io/apps/index.html';
             });
         }
         navBrand.addEventListener('click', e => showHome(e));

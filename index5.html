@@ -576,6 +576,10 @@
                     <i class="fa-brands fa-chrome"></i>
                     <span>Extensões Chrome</span>
                 </button>
+                <button class="nav-btn" id="btn-apps" title="Aplicativos Web">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>Aplicativos</span>
+                </button>
                 <button class="nav-btn" id="btn-theme-switcher" title="Trocar Tema">
                     <i class="fa-solid fa-palette"></i>
                     <span>Temas</span>
@@ -713,6 +717,19 @@
                 <div class="tags-container">
                     <span class="clean-tag">Chrome</span>
                     <span class="clean-tag">Extensões</span>
+                </div>
+            </a>
+
+            <!-- Aplicativos Web -->
+            <a href="https://duvilela.github.io/apps/index.html" class="clean-card">
+                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                <h2>Aplicativos Web</h2>
+                <p>Coleção de ferramentas analíticas e painéis interativos. Gestão de banca, calculadoras matemáticas e estatísticas.</p>
+                <div class="tags-container">
+                    <span class="clean-tag">Gestão</span>
+                    <span class="clean-tag">Estatísticas</span>
+                    <span class="clean-tag">SureCalc</span>
                 </div>
             </a>
         </div>
@@ -871,6 +888,12 @@
         if (btnExtensions) {
             btnExtensions.addEventListener('click', function(e) {
                 window.location.href = 'https://duvilela.github.io/dev-chrome/';
+            });
+        }
+        const btnApps = document.getElementById('btn-apps');
+        if (btnApps) {
+            btnApps.addEventListener('click', function(e) {
+                window.location.href = 'https://duvilela.github.io/apps/index.html';
             });
         }
         navBrand.addEventListener('click', e => showHome(e));
